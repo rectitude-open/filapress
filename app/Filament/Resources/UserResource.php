@@ -112,11 +112,11 @@ class UserResource extends Resource
                     ->label(trans('filament-users::user.resource.email_verified_at')),
                 TextColumn::make('created_at')
                     ->label(trans('filament-users::user.resource.created_at'))
-                    ->dateTime('M j, Y')
+                    ->dateTime('Y-m-d H:i')
                     ->sortable(),
                 TextColumn::make('updated_at')
                     ->label(trans('filament-users::user.resource.updated_at'))
-                    ->dateTime('M j, Y')
+                    ->dateTime('Y-m-d H:i')
                     ->sortable(),
             ])
             ->filters([
