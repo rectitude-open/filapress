@@ -65,6 +65,9 @@ class AdminPanelProvider extends PanelProvider
                 FilamentMediaManagerPlugin::make(),
                 FilamentUsersPlugin::make()
             ])
+            ->resources([
+                config('filament-logger.activity_resource')
+            ])
             ->authMiddleware([
                 Authenticate::class,
             ]);
