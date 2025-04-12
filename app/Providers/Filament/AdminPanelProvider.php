@@ -63,10 +63,10 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentShieldPlugin::make(),
                 FilamentMediaManagerPlugin::make(),
-                FilamentUsersPlugin::make()
+                FilamentUsersPlugin::make(),
             ])
             ->resources([
-                config('filament-logger.activity_resource')
+                config('filament-logger.activity_resource'),
             ])
             ->authMiddleware([
                 Authenticate::class,
