@@ -39,6 +39,9 @@ class AdminPanelProvider extends PanelProvider
                 NavigationGroup::make()
                     ->label(__('menu.nav_group.security'))
                     ->collapsed(),
+                NavigationGroup::make()
+                    ->label(__('menu.nav_group.settings'))
+                    ->collapsed(),
             ])
             ->colors([
                 'primary' => Color::Amber,
