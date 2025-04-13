@@ -13,6 +13,7 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6",
+        "mohamedsabil83/filament-forms-tinyeditor": "^2.4",
         "tomatophp/filament-media-manager": "^1.1",
         "tomatophp/filament-users": "^2.0",
         "z3d0x/filament-logger": "^0.8.0"
