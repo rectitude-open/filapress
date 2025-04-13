@@ -13,3 +13,5 @@
 | Filament Tree                   | [Solution Forest](https://github.com/solutionforest) | MIT     | [Documentation](https://github.com/solutionforest/filament-tree)               |
 | Filament Laravel Auditing       | [Tapp Network](https://github.com/TappNetwork)       | MIT     | [Documentation](https://github.com/TappNetwork/filament-auditing)              |
 | Filament Versionable            | [Mansoor Khan](https://github.com/mansoorkhan96)     | MIT     | [Documentation](https://github.com/mansoorkhan96/filament-versionable)         |
+| Filament SEO                    | [Ralph J. Smit](https://github.com/ralphjsmit)       | MIT     | [Documentation](https://github.com/ralphjsmit/laravel-filament-seo)            |
+| Filament Components             | [Ralph J. Smit](https://github.com/ralphjsmit)       | MIT     | [Documentation](https://github.com/ralphjsmit/laravel-filament-components)     |
