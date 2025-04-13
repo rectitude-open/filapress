@@ -11,3 +11,4 @@
 | Filament Spatie Settings Plugin | [Filament](https://github.com/filamentphp)           | MIT     | [Documentation](https://github.com/filamentphp/spatie-laravel-settings-plugin) |
 | Filament Forms TinyEditor       | [Mohamed Sabil](https://github.com/mohamedsabil83)   | MIT     | [Documentation](https://github.com/mohamedsabil83/filament-forms-tinyeditor)   |
 | Filament Tree                   | [Solution Forest](https://github.com/solutionforest) | MIT     | [Documentation](https://github.com/solutionforest/filament-tree)               |
+| Filament Laravel Auditing       | [Tapp Network](https://github.com/TappNetwork)       | MIT     | [Documentation](https://github.com/TappNetwork/filament-auditing)              |
