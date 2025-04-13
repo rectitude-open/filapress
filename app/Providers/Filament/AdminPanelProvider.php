@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Settings\ApplicationSettings;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\FontProviders\LocalFontProvider;
 use Filament\Http\Middleware\Authenticate;
@@ -32,6 +33,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin-'.config('admin.path'))
             ->path('admin-'.config('admin.path'))
             ->login()
+            ->brandName(ApplicationSettings::getSiteName())
+            ->brandLogo(ApplicationSettings::getLogoUrl())
+            ->favicon(ApplicationSettings::getFaviconUrl())
             ->navigationGroups([
                 NavigationGroup::make()
                     ->label(__('menu.nav_group.content'))
