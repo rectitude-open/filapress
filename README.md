@@ -15,3 +15,4 @@
 | Filament Versionable            | [Mansoor Khan](https://github.com/mansoorkhan96)     | MIT     | [Documentation](https://github.com/mansoorkhan96/filament-versionable)         |
 | Filament SEO                    | [Ralph J. Smit](https://github.com/ralphjsmit)       | MIT     | [Documentation](https://github.com/ralphjsmit/laravel-filament-seo)            |
 | Filament Components             | [Ralph J. Smit](https://github.com/ralphjsmit)       | MIT     | [Documentation](https://github.com/ralphjsmit/laravel-filament-components)     |
+| Themes for Filament panels      | [Nehal Hasnayeen](https://github.com/Hasnayeen)      | MIT     | [Documentation](https://github.com/hasnayeen/themes)                           |

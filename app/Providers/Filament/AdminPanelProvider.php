@@ -23,6 +23,8 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin;
 use TomatoPHP\FilamentUsers\FilamentUsersPlugin;
+use Hasnayeen\Themes\ThemesPlugin;
+use Hasnayeen\Themes\Http\Middleware\SetTheme;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -75,11 +77,13 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                SetTheme::class
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
                 FilamentMediaManagerPlugin::make(),
                 FilamentUsersPlugin::make(),
+                ThemesPlugin::make()
             ])
             ->resources([
                 config('filament-logger.activity_resource'),
