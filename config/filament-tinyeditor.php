@@ -14,7 +14,7 @@ return [
         'ui' => 'oxide',
 
         // dark, default, document, tinymce-5, tinymce-5-dark, writer
-        'content' => 'default'
+        'content' => 'default',
     ],
 
     'profiles' => [
