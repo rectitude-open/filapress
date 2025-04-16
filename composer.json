@@ -9,6 +9,7 @@
         "php": "^8.2",
         "amidesfahani/filament-tinyeditor": "v1.1.4",
         "bezhansalleh/filament-shield": "^3.3",
+        "cviebrock/eloquent-sluggable": "^12.0",
         "filament/filament": "^3.3",
         "filament/spatie-laravel-settings-plugin": "^3.2",
         "hasnayeen/themes": "^3.0",
