@@ -18,7 +18,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Hash;
-use STS\FilamentImpersonate\Tables\Actions\Impersonate;
+use Tapp\FilamentAuditing\RelationManagers\AuditsRelationManager;
 
 class UserResource extends Resource
 {
@@ -51,6 +51,13 @@ class UserResource extends Resource
     public function getTitle(): string
     {
         return trans('filament-users::user.resource.title.resource');
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            AuditsRelationManager::class,
+        ];
     }
 
     public static function form(Form $form): Form
