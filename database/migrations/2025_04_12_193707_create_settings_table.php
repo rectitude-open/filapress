@@ -21,4 +21,9 @@ return new class extends Migration
             $table->unique(['group', 'name']);
         });
     }
+
+    public function settings()
+    {
+        Schema::dropIfExists('versions');
+    }
 };
