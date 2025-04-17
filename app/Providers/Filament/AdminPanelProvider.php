@@ -25,9 +25,22 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin;
 use TomatoPHP\FilamentUsers\FilamentUsersPlugin;
+use Filament\Notifications\Livewire\Notifications;
+use Filament\Support\Enums\Alignment;
+use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 class AdminPanelProvider extends PanelProvider
 {
+    public function boot(): void
+    {
+        Livewire::setScriptRoute(function ($handle) {
+            return Route::get('/assets/admin-'.config('admin.path').'/livewire/livewire.js', $handle);
+        });
+
+        Notifications::alignment(Alignment::Center);
+    }
+
     public function panel(Panel $panel): Panel
     {
         return $panel
