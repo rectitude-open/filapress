@@ -53,10 +53,10 @@ class NewsResource extends Resource
                         Section::make(__('Featured Image'))
                             ->schema([
                                 MediaManagerInput::make('featured_image')
+                                    ->defaultItems(0)
                                     ->hiddenLabel()
                                     ->maxItems(1)
                                     ->disk('public')
-                                    ->deletable(false)
                                     ->orderable(false)
                                     ->schema([])
                                     ->nullable(),
