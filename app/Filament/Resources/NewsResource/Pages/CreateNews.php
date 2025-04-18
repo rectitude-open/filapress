@@ -30,13 +30,13 @@ class CreateNews extends CreateRecord
     protected function getFormActions(): array
     {
         return [
-            $this->getCancelFormAction()
-                ->icon('heroicon-o-arrow-left')
-                ->label(__('action.back')),
             $this->getCreateFormAction()
                 ->icon('heroicon-o-paper-airplane')
                 ->label(__('action.publish'))
                 ->formId('form'),
+            $this->getCancelFormAction()
+                ->icon('heroicon-o-arrow-left')
+                ->label(__('action.back')),
         ];
     }
 }
