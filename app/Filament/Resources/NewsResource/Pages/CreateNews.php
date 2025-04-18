@@ -17,12 +17,26 @@ class CreateNews extends CreateRecord
     protected function getHeaderActions(): array
     {
         return [
-            $this->getCreateFormAction()->formId('form'),
+            $this->getCancelFormAction()
+                ->icon('heroicon-o-arrow-left')
+                ->label(__('action.back')),
+            $this->getCreateFormAction()
+                ->icon('heroicon-o-paper-airplane')
+                ->label(__('action.publish'))
+                ->formId('form'),
         ];
     }
 
     protected function getFormActions(): array
     {
-        return [];
+        return [
+            $this->getCancelFormAction()
+                ->icon('heroicon-o-arrow-left')
+                ->label(__('action.back')),
+            $this->getCreateFormAction()
+                ->icon('heroicon-o-paper-airplane')
+                ->label(__('action.publish'))
+                ->formId('form'),
+        ];
     }
 }
