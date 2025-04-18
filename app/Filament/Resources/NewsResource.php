@@ -46,7 +46,6 @@ class NewsResource extends Resource
                             ->fileAttachmentsDisk('public')
                             ->fileAttachmentsVisibility('public')
                             ->fileAttachmentsDirectory('uploads')
-                            ->profile('default')
                             ->columnSpan('full')
                     ])->columnSpan(['md' => 2]),
                     Grid::make()->schema([

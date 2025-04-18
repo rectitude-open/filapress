@@ -4,17 +4,9 @@ namespace App\Filament\Resources\NewsResource\Pages;
 
 use App\Filament\Resources\NewsResource;
 use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
+use App\Filament\Common\BaseListRecords;
 
-class ListNews extends ListRecords
+class ListNews extends BaseListRecords
 {
     protected static string $resource = NewsResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make()
-                ->icon('heroicon-o-plus'),
-        ];
-    }
 }
