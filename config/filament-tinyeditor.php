@@ -20,7 +20,7 @@ return [
     'profiles' => [
         'default' => [
             'plugins' => 'accordion autoresize codesample directionality advlist link image lists preview pagebreak searchreplace wordcount code fullscreen insertdatetime media table emoticons',
-            'toolbar' => 'undo redo removeformat | styles | bold italic | rtl ltr | alignjustify alignleft aligncenter alignright | numlist bullist outdent indent | forecolor backcolor | blockquote table toc hr | image link media codesample emoticons | wordcount fullscreen',
+            'toolbar' => 'code | undo redo removeformat | styles | bold italic | alignjustify alignleft aligncenter alignright | numlist bullist outdent indent | forecolor backcolor | blockquote table toc hr | image link media codesample emoticons | wordcount fullscreen | rtl ltr',
             'upload_directory' => null,
         ],
 
@@ -38,7 +38,7 @@ return [
 
         'full' => [
             'plugins' => 'accordion autoresize codesample directionality advlist autolink link image lists charmap preview anchor pagebreak searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media table emoticons template help',
-            'toolbar' => 'undo redo removeformat | styles | bold italic | rtl ltr | alignjustify alignright aligncenter alignleft | numlist bullist outdent indent accordion | forecolor backcolor | blockquote table toc hr | image link anchor media codesample emoticons | visualblocks print preview wordcount fullscreen help',
+            'toolbar' => 'code | undo redo removeformat | styles | bold italic | alignjustify alignright aligncenter alignleft | numlist bullist outdent indent accordion | forecolor backcolor | blockquote table toc hr | image link anchor media codesample emoticons | visualblocks print preview wordcount fullscreen help | rtl ltr',
             'upload_directory' => null,
         ],
     ],
