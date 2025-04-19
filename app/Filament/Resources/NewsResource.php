@@ -3,20 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\NewsResource\Pages;
-use App\Filament\Resources\NewsResource\RelationManagers;
 use App\Models\News;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Number;
-use RalphJSmit\Filament\Components\Forms\Sidebar;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\ToggleButtons;
@@ -31,6 +24,13 @@ class NewsResource extends Resource
     protected static ?string $model = News::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?int $navigationSort = -1;
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('menu.nav_group.content');
+    }
 
     public static function form(Form $form): Form
     {
