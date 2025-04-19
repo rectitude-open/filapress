@@ -24,6 +24,7 @@ use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Forms\Components\DateTimePicker;
 
 class NewsResource extends Resource
 {
@@ -93,7 +94,15 @@ class NewsResource extends Resource
                                         1 => 'heroicon-o-check-circle',
                                         2 => 'heroicon-o-x-circle',
                                     ])
-                                    ->inline()
+                                    ->inline(),
+                                DateTimePicker::make('created_at')
+                                    ->label(__('Created At'))
+                                    ->native(false)
+                                    ->format('Y-m-d H:i:s')
+                                    ->displayFormat('Y-m-d H:i:s')
+                                    ->default(now())
+                                    ->suffixIcon('heroicon-o-calendar')
+                                    ->columnSpanFull(),
                             ])
                             ->collapsible(),
                     ])->columnSpan(['md' => 1]),
@@ -123,7 +132,6 @@ class NewsResource extends Resource
                     ->label(__('Created At'))
                     ->dateTime('Y-m-d H:i:s')
                     ->sortable(),
-
             ])->filters([
                 //
             ])->actions([
@@ -143,7 +151,8 @@ class NewsResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc');
     }
 
     public static function getRelations(): array
