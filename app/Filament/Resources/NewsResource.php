@@ -18,6 +18,7 @@ use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Tables\Filters\SelectFilter;
 
 class NewsResource extends Resource
 {
@@ -117,7 +118,6 @@ class NewsResource extends Resource
                 TextColumn::make('title')
                     ->label(__('Title'))
                     ->searchable()
-                    ->sortable()
                     ->limit(50),
                 IconColumn::make('status')
                     ->icon(fn ($state): string => match ($state) {
@@ -133,26 +133,21 @@ class NewsResource extends Resource
                     ->dateTime('Y-m-d H:i:s')
                     ->sortable(),
             ])->filters([
-                //
-            ])->actions([
-                //
-            ])->bulkActions([
-                //
+                SelectFilter::make('status')
+                    ->label(__('Status'))
+                    ->options([
+                        1 => 'Active',
+                        2 => 'Suspended',
+                    ]),
             ])->headerActions([
                 //
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
+            ])->actions([
                 Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
+            ])->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ])
-            ->defaultSort('created_at', 'desc');
+            ])->defaultSort('created_at', 'desc');
     }
 
     public static function getRelations(): array
