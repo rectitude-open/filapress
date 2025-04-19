@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Settings\ApplicationSettings;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\FontProviders\LocalFontProvider;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -14,8 +15,10 @@ use Filament\Notifications\Livewire\Notifications;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\Support\Assets\Css;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Alignment;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Widgets;
 use Hasnayeen\Themes\Http\Middleware\SetTheme;
 use Hasnayeen\Themes\ThemesPlugin;
@@ -39,6 +42,17 @@ class AdminPanelProvider extends PanelProvider
         });
 
         Notifications::alignment(Alignment::Center);
+
+        DateTimePicker::configureUsing(function (DateTimePicker $component): void {
+            $component->format('Y-m-d H:i:s');
+            $component->displayFormat('Y-m-d H:i:s');
+        });
+
+        TextColumn::configureUsing(function (TextColumn $component): void {
+            if (in_array($component->getName(), ['created_at', 'updated_at', 'published_at', 'email_verified_at'])) {
+                $component->dateTime('Y-m-d H:i:s');
+            }
+        });
     }
 
     public function panel(Panel $panel): Panel
@@ -104,5 +118,8 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+        // ->assets([
+        //     Css::make('common-form', resource_path('css/common/form.css')),
+        // ]);
     }
 }

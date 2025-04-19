@@ -105,8 +105,6 @@ class NewsResource extends Resource
                                 DateTimePicker::make('created_at')
                                     ->label(__('Created At'))
                                     ->native(false)
-                                    ->format('Y-m-d H:i:s')
-                                    ->displayFormat('Y-m-d H:i:s')
                                     ->default(now())
                                     ->suffixIcon('heroicon-o-calendar')
                                     ->columnSpanFull()
@@ -139,7 +137,6 @@ class NewsResource extends Resource
                     }),
                 TextColumn::make('created_at')
                     ->label(__('Created At'))
-                    ->dateTime('Y-m-d H:i:s')
                     ->sortable(),
             ])->filters([
                 SelectFilter::make('status')
