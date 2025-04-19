@@ -7,6 +7,11 @@ use Filament\Resources\Pages\EditRecord;
 
 abstract class BaseEditRecord extends EditRecord
 {
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
     protected function getHeaderActions(): array
     {
         return [
