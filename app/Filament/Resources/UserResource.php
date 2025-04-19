@@ -112,11 +112,6 @@ class UserResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->label(trans('filament-users::user.resource.email')),
-                IconColumn::make('email_verified_at')
-                    ->boolean()
-                    ->sortable()
-                    ->searchable()
-                    ->label(trans('filament-users::user.resource.email_verified_at')),
                 TextColumn::make('created_at')
                     ->label(trans('filament-users::user.resource.created_at'))
                     ->dateTime('Y-m-d H:i')
