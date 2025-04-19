@@ -17,7 +17,8 @@ abstract class BaseEditRecord extends EditRecord
                 ->label(__('action.back')),
             $this->getSubmitFormAction()
                 ->icon('heroicon-o-paper-airplane')
-                ->label(__('action.save')),
+                ->label(__('action.save'))
+                ->formId('form'),
         ];
     }
 
