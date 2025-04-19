@@ -22,8 +22,8 @@ return new class extends Migration
         });
     }
 
-    public function settings()
+    public function down()
     {
-        Schema::dropIfExists('versions');
+        Schema::dropIfExists('settings');
     }
 };
