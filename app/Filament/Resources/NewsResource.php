@@ -49,9 +49,10 @@ class NewsResource extends Resource
                             ->fileAttachmentsVisibility('public')
                             ->fileAttachmentsDirectory('uploads')
                             ->columnSpan('full'),
-                    ])->columnSpan(['md' => 2]),
+                    ])->columnSpan(['xl' => 2]),
                     Grid::make()->schema([
                         Section::make(__('Featured Image'))
+                            ->compact()
                             ->schema([
                                 MediaManagerInput::make('featured_image')
                                     ->defaultItems(0)
@@ -63,15 +64,18 @@ class NewsResource extends Resource
                                     ->nullable(),
                             ]),
                         Section::make(__('Meta'))
+                            ->compact()
                             ->schema([
                                 TextInput::make('slug')
                                     ->label(__('Slug'))
                                     ->maxLength(255)
+                                    ->inlineLabel()
                                     ->columnSpanFull(),
                                 Textarea::make('summary')
                                     ->label(__('Summary'))
                                     ->default('')
                                     ->maxLength(255)
+                                    ->inlineLabel()
                                     ->columnSpanFull()
                                     ->dehydrateStateUsing(fn ($state) => $state ?? ''),
                                 TextInput::make('weight')
@@ -79,6 +83,7 @@ class NewsResource extends Resource
                                     ->default(0)
                                     ->numeric()
                                     ->step(1)
+                                    ->inlineLabel()
                                     ->maxLength(255)
                                     ->columnSpanFull(),
                                 ToggleButtons::make('status')
@@ -95,7 +100,8 @@ class NewsResource extends Resource
                                         1 => 'heroicon-o-check-circle',
                                         2 => 'heroicon-o-x-circle',
                                     ])
-                                    ->inline(),
+                                    ->inline()
+                                    ->inlineLabel(),
                                 DateTimePicker::make('created_at')
                                     ->label(__('Created At'))
                                     ->native(false)
@@ -103,10 +109,11 @@ class NewsResource extends Resource
                                     ->displayFormat('Y-m-d H:i:s')
                                     ->default(now())
                                     ->suffixIcon('heroicon-o-calendar')
-                                    ->columnSpanFull(),
+                                    ->columnSpanFull()
+                                    ->inlineLabel(),
                             ])
                             ->collapsible(),
-                    ])->columnSpan(['md' => 1]),
+                    ])->columnSpan(['xl' => 1]),
                 ]),
             ]);
     }
