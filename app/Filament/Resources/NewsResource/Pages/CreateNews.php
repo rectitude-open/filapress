@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\NewsResource\Pages;
 
-use App\Filament\Resources\NewsResource;
 use App\Filament\Common\BaseCreateRecord;
+use App\Filament\Resources\NewsResource;
 
 class CreateNews extends BaseCreateRecord
 {

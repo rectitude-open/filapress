@@ -2,9 +2,8 @@
 
 namespace App\Filament\Resources\NewsResource\Pages;
 
-use App\Filament\Resources\NewsResource;
-use Filament\Actions;
 use App\Filament\Common\BaseListRecords;
+use App\Filament\Resources\NewsResource;
 
 class ListNews extends BaseListRecords
 {

@@ -2,9 +2,8 @@
 
 namespace App\Filament\Resources\NewsResource\Pages;
 
-use App\Filament\Resources\NewsResource;
-use Filament\Actions;
 use App\Filament\Common\BaseEditRecord;
+use App\Filament\Resources\NewsResource;
 
 class EditNews extends BaseEditRecord
 {

@@ -2,23 +2,23 @@
 
 namespace App\Filament\Resources;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\NewsResource\Pages;
 use App\Models\News;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Table;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\ToggleButtons;
-use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
-use AmidEsfahani\FilamentTinyEditor\TinyEditor;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Forms\Components\DateTimePicker;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Table;
+use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
 
 class NewsResource extends Resource
 {
@@ -48,7 +48,7 @@ class NewsResource extends Resource
                             ->fileAttachmentsDisk('public')
                             ->fileAttachmentsVisibility('public')
                             ->fileAttachmentsDirectory('uploads')
-                            ->columnSpan('full')
+                            ->columnSpan('full'),
                     ])->columnSpan(['md' => 2]),
                     Grid::make()->schema([
                         Section::make(__('Featured Image'))
@@ -58,7 +58,7 @@ class NewsResource extends Resource
                                     ->hiddenLabel()
                                     ->maxItems(1)
                                     ->disk('public')
-                                    ->orderable(false)
+                                    ->reorderable(false)
                                     ->schema([])
                                     ->nullable(),
                             ]),
@@ -123,10 +123,12 @@ class NewsResource extends Resource
                     ->icon(fn ($state): string => match ($state) {
                         1 => 'heroicon-o-check-circle',
                         2 => 'heroicon-o-x-circle',
+                        default => 'heroicon-o-question-mark-circle',
                     })
                     ->color(fn ($state): string => match ($state) {
                         1 => 'success',
                         2 => 'danger',
+                        default => 'warning',
                     }),
                 TextColumn::make('created_at')
                     ->label(__('Created At'))

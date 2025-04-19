@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -13,8 +13,9 @@ class News extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\NewsFactory> */
     use HasFactory;
-    use Sluggable;
+
     use InteractsWithMedia;
+    use Sluggable;
 
     protected $fillable = [
         'title',
@@ -23,15 +24,15 @@ class News extends Model implements HasMedia
         'content',
         'weight',
         'status',
-        'created_at'
+        'created_at',
     ];
 
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'title'
-            ]
+                'source' => 'title',
+            ],
         ];
     }
 
