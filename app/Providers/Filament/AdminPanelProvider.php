@@ -62,9 +62,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin-'.config('admin.path'))
             ->path('admin-'.config('admin.path'))
             ->login()
-            ->brandName(ApplicationSettings::getSiteName())
-            ->brandLogo(ApplicationSettings::getLogoUrl())
-            ->favicon(ApplicationSettings::getFaviconUrl())
+            ->brandName(fn () => ApplicationSettings::getSiteName())
+            ->brandLogo(fn () => ApplicationSettings::getLogoUrl())
+            ->favicon(fn () => ApplicationSettings::getFaviconUrl())
             ->navigationGroups([
                 NavigationGroup::make()
                     ->label(__('menu.nav_group.content'))
