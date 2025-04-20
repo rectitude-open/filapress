@@ -9,9 +9,9 @@ class ApplicationSettings extends Settings
 {
     public string $site_name;
 
-    public string $site_title;
+    public ?string $site_title;
 
-    public string $site_description;
+    public ?string $site_description;
 
     public ?string $site_logo;
 
