@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'assets_path' => 'assets/admin-'.env('ADMIN_PATH', 'admin'),
+    'assets_path' => 'admin-assets/'.env('ADMIN_PATH', 'admin'),
 
     /*
     |--------------------------------------------------------------------------

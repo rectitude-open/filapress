@@ -38,7 +38,7 @@ class AdminPanelProvider extends PanelProvider
     public function boot(): void
     {
         Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/assets/admin-'.config('admin.path').'/livewire/livewire.js', $handle);
+            return Route::get('/admin-assets/'.config('admin.path').'/livewire/livewire.js', $handle);
         });
 
         Notifications::alignment(Alignment::Center);
@@ -81,7 +81,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->font(
                 'Inter',
-                url: asset('/assets/admin-'.config('admin.path').'/css/fonts.css'),
+                url: asset('/admin-assets/'.config('admin.path').'/css/fonts.css'),
                 provider: LocalFontProvider::class,
             )
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
