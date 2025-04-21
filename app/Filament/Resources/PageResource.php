@@ -17,6 +17,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
 
 class PageResource extends Resource
 {
@@ -88,6 +89,17 @@ class PageResource extends Resource
                                     ->inlineLabel(),
                             ])
                             ->collapsible(),
+                        Section::make(__('Files'))
+                            ->compact()
+                            ->schema([
+                                MediaManagerInput::make('files')
+                                    ->defaultItems(0)
+                                    ->hiddenLabel()
+                                    ->disk('public')
+                                    ->reorderable(false)
+                                    ->schema([])
+                                    ->nullable(),
+                            ]),
                     ])->columnSpan(['xl' => 1]),
                 ]),
             ]);

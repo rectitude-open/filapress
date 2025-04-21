@@ -5,12 +5,16 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Page extends Model
+class Page extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\PageFactory> */
     use HasFactory;
 
+    use InteractsWithMedia;
     use Sluggable;
 
     protected $fillable = [
@@ -29,5 +33,10 @@ class Page extends Model
                 'source' => 'title',
             ],
         ];
+    }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaCollection('files');
     }
 }
