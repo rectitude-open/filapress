@@ -3,7 +3,12 @@
 declare(strict_types=1);
 
 return [
-    'provider' => 'vendor', // cloud|vendor
+    'provider' => 'asset', // cdn|asset
+
+    'cdn_path' => 'https://cdn.jsdelivr.net/npm/tinymce@6.8.5/tinymce.min.js',
+    'asset_path' => 'admin-assets/'.config('admin.path').'/tinymce/tinymce.min.js',
+    // 'asset_path' => 'vendor/tinymce/tinymce.min.js',
+
     // 'direction' => 'rtl',
     /**
      * change darkMode: 'auto'|'force'|'class'|'media'|false|'custom'
