@@ -10,7 +10,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "amidesfahani/filament-tinyeditor": "v1.1.4",
         "bezhansalleh/filament-shield": "^3.3",
         "cviebrock/eloquent-sluggable": "^12.0",
         "filament/filament": "^3.3",
@@ -24,6 +23,7 @@
         "owen-it/laravel-auditing": "^14.0",
         "ralphjsmit/laravel-filament-components": "^2.2",
         "ralphjsmit/laravel-filament-seo": "^1.5",
+        "rectitude-open/filament-tinyeditor-6": "^6.2",
         "solution-forest/filament-tree": "^2.1",
         "tapp/filament-auditing": "^3.0",
         "tomatophp/filament-media-manager": "^1.1",
