@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'nav_group.content' => 'Content',
     'nav_group.security' => 'Security',

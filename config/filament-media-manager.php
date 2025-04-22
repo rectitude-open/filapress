@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'model' => [
         'folder' => \TomatoPHP\FilamentMediaManager\Models\Folder::class,

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Z3d0X\FilamentLogger\Loggers\AccessLogger;
 use Z3d0X\FilamentLogger\Loggers\ModelLogger;
 use Z3d0X\FilamentLogger\Loggers\NotificationLogger;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'provider' => 'vendor', // cloud|vendor
     // 'direction' => 'rtl',
