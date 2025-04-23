@@ -30,9 +30,9 @@ return new class extends Migration
             $table->unsignedInteger('news_id');
             $table->unsignedInteger('category_id');
 
-            $table->index(['news_id'], 'idx_news_id');
-            $table->index(['category_id'], 'idx_category_id');
-            $table->unique(['news_id', 'category_id'], 'uq_news_category');
+            $table->index('news_id');
+            $table->index('category_id');
+            $table->unique(['news_id', 'category_id']);
         });
     }
 
