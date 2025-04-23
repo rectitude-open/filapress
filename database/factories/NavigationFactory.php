@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,6 +22,8 @@ class NavigationFactory extends Factory
             'title' => $this->faker->word,
             'parent_id' => $this->faker->numberBetween(-1, 10),
             'weight' => $this->faker->numberBetween(0, 100),
+            'url' => $this->faker->url,
+            'is_active' => $this->faker->boolean(80),
         ];
     }
 }

@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Pages;
 
 use App\Models\Navigation as TreePageModel;
-use SolutionForest\FilamentTree\Pages\TreePage as BasePage;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ToggleButtons;
+use Illuminate\Database\Eloquent\Model;
+use SolutionForest\FilamentTree\Pages\TreePage as BasePage;
 
 class Navigation extends BasePage
 {
@@ -18,6 +22,7 @@ class Navigation extends BasePage
     {
         return __('menu.nav_item.navigation');
     }
+
     public static function getNavigationGroup(): ?string
     {
         return __('menu.nav_group.content');
@@ -40,22 +45,27 @@ class Navigation extends BasePage
                 ->required()
                 ->maxLength(255)
                 ->columnSpanFull(),
+            TextInput::make('url')
+                ->label(__('URL'))
+                ->maxLength(255)
+                ->dehydrateStateUsing(fn ($state) => $state ? $state : '')
+                ->columnSpanFull(),
+            ToggleButtons::make('is_active')
+                ->options([
+                    1 => 'Active',
+                    0 => 'Inactive',
+                ])
+                ->default(1)
+                ->colors([
+                    1 => 'success',
+                    0 => 'warning',
+                ])
+                ->icons([
+                    1 => 'heroicon-o-check-circle',
+                    0 => 'heroicon-o-x-circle',
+                ])
+                ->inline(),
         ];
-    }
-
-    protected function hasDeleteAction(): bool
-    {
-        return true;
-    }
-
-    protected function hasEditAction(): bool
-    {
-        return true;
-    }
-
-    protected function hasViewAction(): bool
-    {
-        return false;
     }
 
     protected function getHeaderWidgets(): array
@@ -68,9 +78,27 @@ class Navigation extends BasePage
         return [];
     }
 
-    // CUSTOMIZE ICON OF EACH RECORD, CAN DELETE
-    // public function getTreeRecordIcon(?\Illuminate\Database\Eloquent\Model $record = null): ?string
-    // {
-    //     return null;
-    // }
+    /**
+     * @param  \App\Models\Navigation|null  $record
+     */
+    public function getTreeRecordTitle(?Model $record = null): string
+    {
+        if (! $record) {
+            return '';
+        }
+
+        $title = $record->title ?? '';
+        $url = $record->url ? ' - '.$record->url : '';
+        $badge = $record->is_active ? '' : '[Inactive] ';
+
+        return "$badge$title$url";
+    }
+
+    protected function getTreeActions(): array
+    {
+        return [
+            $this->getEditAction(),
+            $this->getDeleteAction(),
+        ];
+    }
 }
