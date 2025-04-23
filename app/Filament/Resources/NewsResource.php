@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use RectitudeOpen\FilamentTinyEditor6\TinyEditor;
+use App\Filament\Clusters\NewsCluster;
 use App\Filament\Resources\NewsResource\Pages;
 use App\Models\News;
 use Filament\Forms\Components\DateTimePicker;
@@ -20,20 +20,18 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use RectitudeOpen\FilamentTinyEditor6\TinyEditor;
 use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
 
 class NewsResource extends Resource
 {
     protected static ?string $model = News::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $cluster = NewsCluster::class;
 
-    protected static ?int $navigationSort = -1;
+    protected static ?int $navigationSort = 1;
 
-    public static function getNavigationGroup(): ?string
-    {
-        return __('menu.nav_group.content');
-    }
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {

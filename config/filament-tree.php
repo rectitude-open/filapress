@@ -7,7 +7,7 @@ return [
      * Tree model fields
      */
     'column_name' => [
-        'order' => 'order',
+        'order' => 'weight',
         'parent' => 'parent_id',
         'title' => 'title',
     ],

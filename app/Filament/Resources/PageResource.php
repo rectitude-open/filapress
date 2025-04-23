@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use RectitudeOpen\FilamentTinyEditor6\TinyEditor;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
 use Filament\Forms\Components\DateTimePicker;
@@ -19,6 +18,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use RectitudeOpen\FilamentTinyEditor6\TinyEditor;
 use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
 
 class PageResource extends Resource
