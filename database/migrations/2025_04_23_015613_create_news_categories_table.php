@@ -23,6 +23,16 @@ return new class extends Migration
             $table->index(['weight'], 'idx_weight');
             $table->timestamps();
         });
+
+        Schema::create('pivot_news_categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('news_id');
+            $table->unsignedInteger('category_id');
+
+            $table->index(['news_id'], 'idx_news_id');
+            $table->index(['category_id'], 'idx_category_id');
+            $table->unique(['news_id', 'category_id'], 'uq_news_category');
+        });
     }
 
     /**
@@ -31,5 +41,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('news_categories');
+        Schema::dropIfExists('pivot_news_categories');
     }
 };

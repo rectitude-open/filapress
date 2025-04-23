@@ -9,6 +9,7 @@ use App\Filament\Resources\NewsResource\Pages;
 use App\Models\News;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -51,6 +52,17 @@ class NewsResource extends Resource
                             ->columnSpan('full'),
                     ])->columnSpan(['xl' => 2]),
                     Grid::make()->schema([
+                        Section::make(__('Categories'))
+                            ->compact()
+                            ->schema([
+                                MultiSelect::make('categories')
+                                    ->hiddenLabel()
+                                    ->relationship('categories', 'title')
+                                    ->preload()
+                                    ->placeholder(__('Select Categories'))
+                                    ->searchable()
+                                    ->columnSpanFull(),
+                            ]),
                         Section::make(__('Featured Image'))
                             ->compact()
                             ->schema([

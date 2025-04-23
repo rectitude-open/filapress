@@ -19,15 +19,12 @@ class News extends Model implements HasMedia
     use InteractsWithMedia;
     use Sluggable;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'summary',
-        'content',
-        'weight',
-        'status',
-        'created_at',
-    ];
+    protected $fillable = ['title', 'slug', 'summary', 'content', 'weight', 'status', 'created_at'];
+
+    public function categories()
+    {
+        return $this->belongsToMany(NewsCategory::class, 'pivot_news_categories', 'news_id', 'category_id');
+    }
 
     public function sluggable(): array
     {
