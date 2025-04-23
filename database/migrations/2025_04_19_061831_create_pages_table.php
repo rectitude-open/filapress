@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('content')->nullable();
             $table->unsignedTinyInteger('status')->default(1)->comment('1=active, 0=suspended');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

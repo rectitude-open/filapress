@@ -7,6 +7,7 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -18,15 +19,9 @@ class Page extends Model implements HasMedia
 
     use InteractsWithMedia;
     use Sluggable;
+    use SoftDeletes;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'content',
-        'status',
-        'created_at',
-        'updated_at',
-    ];
+    protected $fillable = ['title', 'slug', 'content', 'status', 'created_at', 'updated_at'];
 
     public function sluggable(): array
     {
