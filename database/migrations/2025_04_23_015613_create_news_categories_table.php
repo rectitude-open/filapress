@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title')->default('');
             $table->integer('parent_id')->default(-1);
             $table->integer('weight')->default(0);
+            $table->softDeletes();
 
             $table->index(['weight'], 'idx_weight');
             $table->timestamps();

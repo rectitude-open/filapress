@@ -7,9 +7,9 @@ namespace App\Filament\Resources;
 use App\Filament\Clusters\NewsCluster;
 use App\Filament\Resources\NewsResource\Pages;
 use App\Models\News;
+use CodeWithDennis\FilamentSelectTree\SelectTree;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -23,7 +23,6 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use RectitudeOpen\FilamentTinyEditor6\TinyEditor;
 use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
-use CodeWithDennis\FilamentSelectTree\SelectTree;
 
 class NewsResource extends Resource
 {
@@ -64,13 +63,7 @@ class NewsResource extends Resource
                                     ->searchable()
                                     ->defaultOpenLevel(3)
                                     ->columnSpanFull()
-                                // MultiSelect::make('categories')
-                                //     ->hiddenLabel()
-                                //     ->relationship('categories', 'title')
-                                //     ->preload()
-                                //     ->placeholder(__('Select Categories'))
-                                //     ->searchable()
-                                //     ->columnSpanFull(),
+                                    ->required(),
                             ]),
                         Section::make(__('Featured Image'))
                             ->compact()
