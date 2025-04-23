@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class () extends Migration {
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('navigations', function (Blueprint $table) {
+            $table->increments('id');
+
+            $table->string('title')->default('');
+            $table->integer('parent_id')->default(-1);
+            $table->integer('weight')->default(0);
+            $table->softDeletes();
+
+            $table->index('parent_id', 'idx_parent_id');
+            $table->index('weight', 'idx_weight');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('navigations');
+    }
+};
