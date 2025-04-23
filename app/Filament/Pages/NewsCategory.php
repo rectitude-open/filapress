@@ -19,7 +19,7 @@ class NewsCategory extends BasePage
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
-    protected static int $maxDepth = 2;
+    protected static int $maxDepth = 3;
 
     protected function getActions(): array
     {

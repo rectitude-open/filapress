@@ -23,6 +23,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use RectitudeOpen\FilamentTinyEditor6\TinyEditor;
 use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
+use CodeWithDennis\FilamentSelectTree\SelectTree;
 
 class NewsResource extends Resource
 {
@@ -55,13 +56,21 @@ class NewsResource extends Resource
                         Section::make(__('Categories'))
                             ->compact()
                             ->schema([
-                                MultiSelect::make('categories')
+                                SelectTree::make('categories')
                                     ->hiddenLabel()
-                                    ->relationship('categories', 'title')
-                                    ->preload()
+                                    ->relationship('categories', 'title', 'parent_id')
                                     ->placeholder(__('Select Categories'))
+                                    ->parentNullValue(-1)
                                     ->searchable()
-                                    ->columnSpanFull(),
+                                    ->defaultOpenLevel(3)
+                                    ->columnSpanFull()
+                                // MultiSelect::make('categories')
+                                //     ->hiddenLabel()
+                                //     ->relationship('categories', 'title')
+                                //     ->preload()
+                                //     ->placeholder(__('Select Categories'))
+                                //     ->searchable()
+                                //     ->columnSpanFull(),
                             ]),
                         Section::make(__('Featured Image'))
                             ->compact()
