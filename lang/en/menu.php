@@ -7,4 +7,5 @@ return [
     'nav_group.security' => 'Security',
     'nav_group.settings' => 'Settings',
     'nav_item.navigation' => 'Navigation',
+    'nav_item.contact_form' => 'Contact Form',
 ];
