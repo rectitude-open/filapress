@@ -14,7 +14,7 @@ return [
 
     'activity_resource' => ActivityResource::class,
     'scoped_to_tenant' => true,
-    'navigation_sort' => 9,
+    'navigation_sort' => 99,
 
     'resources' => [
         'enabled' => true,

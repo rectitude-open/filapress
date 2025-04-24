@@ -16,3 +16,4 @@
 | Filament SEO                                                          | [Ralph J. Smit](https://github.com/ralphjsmit)       | MIT     | [Documentation](https://github.com/ralphjsmit/laravel-filament-seo)            |
 | Themes for Filament panels                                            | [Nehal Hasnayeen](https://github.com/Hasnayeen)      | MIT     | [Documentation](https://github.com/hasnayeen/themes)                           |
 | Filament Captcha                                                      | [Marco Germani](https://github.com/marcogermani87)   | MIT     | [Documentation](https://github.com/marcogermani87/filament-captcha)            |
+| Mail Log                                                              | [Tapp Network](https://github.com/TappNetwork)       | MIT     | [Documentation](https://github.com/TappNetwork/filament-maillog)               |

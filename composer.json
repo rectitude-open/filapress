@@ -27,6 +27,7 @@
         "rectitude-open/filament-tinyeditor-6": "^6.2",
         "solution-forest/filament-tree": "^2.1",
         "tapp/filament-auditing": "^3.0",
+        "tapp/filament-maillog": "^1.0",
         "tomatophp/filament-media-manager": "^1.1",
         "tomatophp/filament-users": "^2.0",
         "z3d0x/filament-logger": "^0.8.0"

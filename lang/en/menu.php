@@ -8,4 +8,5 @@ return [
     'nav_group.settings' => 'Settings',
     'nav_item.navigation' => 'Navigation',
     'nav_item.contact_form' => 'Contact Form',
+    'nav_item.mail_log' => 'Mail Log',
 ];

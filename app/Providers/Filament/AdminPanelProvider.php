@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Livewire\Livewire;
 use MarcoGermani87\FilamentCaptcha\FilamentCaptcha;
+use Tapp\FilamentMailLog\FilamentMailLogPlugin;
 use TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin;
 use TomatoPHP\FilamentUsers\FilamentUsersPlugin;
 
@@ -115,6 +116,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentUsersPlugin::make(),
                 ThemesPlugin::make(),
                 FilamentCaptcha::make(),
+                FilamentMailLogPlugin::make(),
             ])
             ->resources([
                 config('filament-logger.activity_resource'),
