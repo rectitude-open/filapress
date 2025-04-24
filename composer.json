@@ -21,6 +21,7 @@
         "livewire/livewire": "^3.6",
         "maatwebsite/excel": "^3.1",
         "mansoor/filament-versionable": "^0.0.13",
+        "marcogermani87/filament-captcha": "^1.4",
         "owen-it/laravel-auditing": "^14.0",
         "ralphjsmit/laravel-filament-seo": "^1.5",
         "rectitude-open/filament-tinyeditor-6": "^6.2",

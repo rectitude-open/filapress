@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Auth\Login;
 use App\Settings\ApplicationSettings;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\FontProviders\LocalFontProvider;
@@ -17,7 +18,6 @@ use Filament\Notifications\Livewire\Notifications;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Support\Assets\Css;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Alignment;
 use Filament\Tables\Columns\TextColumn;
@@ -32,6 +32,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Livewire\Livewire;
+use MarcoGermani87\FilamentCaptcha\FilamentCaptcha;
 use TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin;
 use TomatoPHP\FilamentUsers\FilamentUsersPlugin;
 
@@ -63,7 +64,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin-'.config('admin.path'))
             ->path('admin-'.config('admin.path'))
-            ->login()
+            ->login(Login::class)
             ->brandName(fn () => ApplicationSettings::getSiteName())
             ->brandLogo(fn () => ApplicationSettings::getLogoUrl())
             ->favicon(fn () => ApplicationSettings::getFaviconUrl())
@@ -113,6 +114,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentMediaManagerPlugin::make(),
                 FilamentUsersPlugin::make(),
                 ThemesPlugin::make(),
+                FilamentCaptcha::make(),
             ])
             ->resources([
                 config('filament-logger.activity_resource'),
