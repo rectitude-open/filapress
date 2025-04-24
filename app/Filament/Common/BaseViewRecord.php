@@ -2,17 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\ContactFormResource\Pages;
+namespace App\Filament\Common;
 
-use App\Filament\Common\BaseViewRecord;
-use App\Filament\Resources\ContactFormResource;
 use Filament\Actions\Action;
+use Filament\Resources\Pages\ViewRecord;
 use Illuminate\Support\Js;
 
-class ViewContactForm extends BaseViewRecord
+abstract class BaseViewRecord extends ViewRecord
 {
-    protected static string $resource = ContactFormResource::class;
-
     protected function getHeaderActions(): array
     {
         return [
