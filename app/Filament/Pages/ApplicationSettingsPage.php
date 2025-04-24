@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Pages;
 
 use App\Filament\Pages\ApplicationSettings\Forms\ApplicationForm;
+use App\Filament\Pages\ApplicationSettings\Forms\MailForm;
 use App\Settings\ApplicationSettings;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Form;
@@ -35,6 +36,11 @@ class ApplicationSettingsPage extends SettingsPage
             ->label('Application')
             ->icon('heroicon-o-tv')
             ->schema(ApplicationForm::get());
+
+        $arrTabs[] = Tabs\Tab::make('Mail Tab')
+            ->label('Mail')
+            ->icon('heroicon-o-tv')
+            ->schema(MailForm::get());
 
         return $form
             ->columns(1)

@@ -19,6 +19,18 @@ class ApplicationSettings extends Settings
 
     public ?string $site_favicon;
 
+    public ?string $mail_from_email;
+
+    public ?string $mail_from_name;
+
+    public ?string $mail_host;
+
+    public ?string $mail_port;
+
+    public ?string $mail_username;
+
+    public ?string $mail_password;
+
     public static function group(): string
     {
         return 'admin';
