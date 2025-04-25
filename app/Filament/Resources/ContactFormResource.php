@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ContactFormResource\Pages;
+use App\Forms\Components\InfoAlert;
 use App\Models\ContactForm;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Grid;
@@ -44,6 +45,10 @@ class ContactFormResource extends Resource
     {
         return $form
             ->schema([
+                InfoAlert::make('info')
+                    ->message(__('Please note that the content displayed on this page is provided by visitors. Exercise caution and verify information independently before relying on it.'))
+                    ->type('warning')
+                    ->columnSpanFull(),
                 Grid::make(['sm' => 3])->schema([
                     Grid::make()->schema([
                         TextInput::make('subject')
