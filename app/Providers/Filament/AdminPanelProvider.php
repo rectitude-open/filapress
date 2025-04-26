@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\Login;
+use App\Policies\ActivityPolicy;
+use App\Policies\FolderPolicy;
+use App\Policies\MailLogPolicy;
+use App\Policies\MediaPolicy;
 use App\Settings\ApplicationSettings;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\FontProviders\LocalFontProvider;
@@ -29,12 +33,17 @@ use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Livewire\Livewire;
 use MarcoGermani87\FilamentCaptcha\FilamentCaptcha;
+use Spatie\Activitylog\Models\Activity;
 use Tapp\FilamentMailLog\FilamentMailLogPlugin;
+use Tapp\FilamentMailLog\Models\MailLog;
 use TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin;
+use TomatoPHP\FilamentMediaManager\Models\Folder;
+use TomatoPHP\FilamentMediaManager\Models\Media;
 use TomatoPHP\FilamentUsers\FilamentUsersPlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -57,6 +66,11 @@ class AdminPanelProvider extends PanelProvider
                 $component->dateTime('Y-m-d H:i:s');
             }
         });
+
+        Gate::policy(MailLog::class, MailLogPolicy::class);
+        Gate::policy(Activity::class, ActivityPolicy::class);
+        Gate::policy(Folder::class, FolderPolicy::class);
+        Gate::policy(Media::class, MediaPolicy::class);
     }
 
     public function panel(Panel $panel): Panel
@@ -124,6 +138,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+        // ->authGuard('admin');
         // ->assets([
         //     Css::make('common-form', resource_path('css/common/form.css')),
         // ]);
