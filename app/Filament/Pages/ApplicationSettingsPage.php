@@ -7,12 +7,15 @@ namespace App\Filament\Pages;
 use App\Filament\Pages\ApplicationSettings\Forms\ApplicationForm;
 use App\Filament\Pages\ApplicationSettings\Forms\MailForm;
 use App\Settings\ApplicationSettings;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
 
 class ApplicationSettingsPage extends SettingsPage
 {
+    use HasPageShield;
+
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static ?string $title = 'Application Settings';

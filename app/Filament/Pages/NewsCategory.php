@@ -6,11 +6,14 @@ namespace App\Filament\Pages;
 
 use App\Filament\Clusters\NewsCluster;
 use App\Models\NewsCategory as TreePageModel;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\TextInput;
 use SolutionForest\FilamentTree\Pages\TreePage as BasePage;
 
 class NewsCategory extends BasePage
 {
+    use HasPageShield;
+
     protected static string $model = TreePageModel::class;
 
     protected static ?string $cluster = NewsCluster::class;

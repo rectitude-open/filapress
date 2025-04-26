@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Pages;
 
 use App\Models\Navigation as TreePageModel;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,8 @@ use SolutionForest\FilamentTree\Pages\TreePage as BasePage;
 
 class Navigation extends BasePage
 {
+    use HasPageShield;
+
     protected static string $model = TreePageModel::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-square-3-stack-3d';
