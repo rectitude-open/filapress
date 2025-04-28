@@ -58,7 +58,6 @@ class Login extends BaseLogin
                 IP::ban(
                     $ip,
                     [
-                        'route' => request()->path(),
                         'user_agent' => request()->header('user-agent'),
                     ],
                     now()->addHour()->toDateTimeString()
@@ -115,7 +114,7 @@ class Login extends BaseLogin
             ->schema([
                 $this->getEmailFormComponent(),
                 $this->getPasswordFormComponent(),
-                CaptchaField::make('captcha'),
+                // CaptchaField::make('captcha'),
                 $this->getRememberFormComponent(),
             ]);
     }
