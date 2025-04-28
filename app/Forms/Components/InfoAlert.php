@@ -21,6 +21,7 @@ class InfoAlert extends Field
     protected function setUp(): void
     {
         $this->hiddenLabel();
+        $this->dehydrated(false);
     }
 
     public function message(string $message)
