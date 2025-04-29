@@ -25,6 +25,7 @@
         "mchev/banhammer": "^2.4",
         "owen-it/laravel-auditing": "^14.0",
         "ralphjsmit/laravel-filament-seo": "^1.5",
+        "rectitude-open/filament-ban-manager": "^1.2",
         "rectitude-open/filament-tinyeditor-6": "^6.2",
         "solution-forest/filament-tree": "^2.1",
         "tapp/filament-auditing": "^3.0",

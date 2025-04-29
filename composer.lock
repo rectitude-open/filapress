@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "012787447aeb1902f1443499284a90b8",
+    "content-hash": "54efcead357a7cb3939af7a2f4bf0431",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6846,6 +6846,78 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "rectitude-open/filament-ban-manager",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectitude-open/filament-ban-manager.git",
+                "reference": "d26279f1c9bbe215b7f4147d10baf342670154bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectitude-open/filament-ban-manager/zipball/d26279f1c9bbe215b7f4147d10baf342670154bf",
+                "reference": "d26279f1c9bbe215b7f4147d10baf342670154bf",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "mchev/banhammer": "^2.4",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.0",
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.1",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rectitudeopen\\FilamentBanManager\\FilamentBanManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rectitudeopen\\FilamentBanManager\\": "src/",
+                    "Rectitudeopen\\FilamentBanManager\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "rectitude-open",
+                    "email": "open@rectitude.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Ban Manager for Filament",
+            "homepage": "https://github.com/rectitude-open/filament-ban-manager",
+            "keywords": [
+                "ban",
+                "filament",
+                "laravel",
+                "security"
+            ],
+            "support": {
+                "issues": "https://github.com/rectitude-open/filament-ban-manager/issues",
+                "source": "https://github.com/rectitude-open/filament-ban-manager"
+            },
+            "time": "2025-04-28T10:56:26+00:00"
         },
         {
             "name": "rectitude-open/filament-tinyeditor-6",

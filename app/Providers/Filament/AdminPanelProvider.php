@@ -45,6 +45,7 @@ use TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin;
 use TomatoPHP\FilamentMediaManager\Models\Folder;
 use TomatoPHP\FilamentMediaManager\Models\Media;
 use TomatoPHP\FilamentUsers\FilamentUsersPlugin;
+use Rectitudeopen\FilamentBanManager\FilamentBanManagerPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -131,6 +132,7 @@ class AdminPanelProvider extends PanelProvider
                 ThemesPlugin::make(),
                 FilamentCaptcha::make(),
                 FilamentMailLogPlugin::make(),
+                FilamentBanManagerPlugin::make()
             ])
             ->resources([
                 config('filament-logger.activity_resource'),
