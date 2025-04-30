@@ -12,6 +12,7 @@ use Filament\Facades\Filament;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
+use App\Filament\Pages\SystemSettings\Forms\SecurityForm;
 
 class SystemSettingsPage extends SettingsPage
 {
@@ -43,8 +44,13 @@ class SystemSettingsPage extends SettingsPage
 
         $arrTabs[] = Tabs\Tab::make('Mail Tab')
             ->label('Mail')
-            ->icon('heroicon-o-tv')
+            ->icon('heroicon-o-envelope')
             ->schema(MailForm::get());
+
+        $arrTabs[] = Tabs\Tab::make('Security Tab')
+            ->label('Security')
+            ->icon('heroicon-o-shield-check')
+            ->schema(SecurityForm::get());
 
         return $form
             ->columns(1)

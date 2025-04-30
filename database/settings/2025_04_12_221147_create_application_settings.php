@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 use Spatie\LaravelSettings\Migrations\SettingsMigration;
 
-return new class extends SettingsMigration
-{
+return new class () extends SettingsMigration {
     public function up(): void
     {
         $this->migrator->add('system.site_name', 'FilaPress');
@@ -19,5 +18,10 @@ return new class extends SettingsMigration
         $this->migrator->add('system.mail_port', '465');
         $this->migrator->add('system.mail_username', '');
         $this->migrator->add('system.mail_password', '');
+        $this->migrator->add('system.login_attempts_rate_limit', 3);
+        $this->migrator->add('system.login_attempts_lockout_window', 60);
+        $this->migrator->add('system.login_attempts_lockout_attempts', 5);
+        $this->migrator->add('system.login_attempts_lockout_duration', 60);
+        $this->migrator->add('system.enable_login_captcha', true);
     }
 };

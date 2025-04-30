@@ -16,6 +16,7 @@ use Mchev\Banhammer\IP;
 use Spatie\Activitylog\ActivityLogger;
 use Spatie\Activitylog\ActivityLogStatus;
 use Spatie\Activitylog\Models\Activity;
+use App\Settings\SystemSettings;
 
 class Login extends BaseLogin
 {
@@ -31,8 +32,10 @@ class Login extends BaseLogin
 
     public function authenticate(): ?LoginResponse
     {
+        $systemSettings = app(SystemSettings::class);
+
         try {
-            $this->rateLimit(3);
+            $this->rateLimit($systemSettings->login_attempts_rate_limit ?? 3);
         } catch (TooManyRequestsException $exception) {
             $this->getRateLimitedNotification($exception)?->send();
 
@@ -51,16 +54,16 @@ class Login extends BaseLogin
             $failCount = Activity::query()
                 ->where('event', 'LoginFailed')
                 ->where('properties->ip', $ip)
-                ->where('created_at', '>=', now()->subHour()->toDateTimeString())
+                ->where('created_at', '>=', now()->subMinutes($systemSettings->login_attempts_lockout_window ?? 60)->toDateTimeString())
                 ->count();
 
-            if ($failCount >= 5) {
+            if ($failCount >= ($systemSettings->login_attempts_lockout_attempts ?? 5)) {
                 IP::ban(
                     $ip,
                     [
                         'user_agent' => request()->header('user-agent'),
                     ],
-                    now()->addHour()->toDateTimeString()
+                    now()->addMinutes($systemSettings->login_attempts_lockout_duration ?? 60)->toDateTimeString(),
                 );
                 $this->getBannedNotification()?->send();
 
@@ -110,12 +113,21 @@ class Login extends BaseLogin
 
     public function form(Form $form): Form
     {
+        $systemSettings = app(SystemSettings::class);
+
+        $schema = [
+            $this->getEmailFormComponent(),
+            $this->getPasswordFormComponent(),
+            $systemSettings->enable_login_captcha
+                ? CaptchaField::make('captcha')
+                    ->label('Captcha')
+                    ->required()
+                : null,
+            // CaptchaField::make('captcha'),
+            $this->getRememberFormComponent(),
+        ];
+
         return $form
-            ->schema([
-                $this->getEmailFormComponent(),
-                $this->getPasswordFormComponent(),
-                // CaptchaField::make('captcha'),
-                $this->getRememberFormComponent(),
-            ]);
+            ->schema(array_filter($schema));
     }
 }
