@@ -7,6 +7,7 @@ namespace App\Filament\Pages;
 use App\Filament\Clusters\NewsCluster;
 use App\Models\NewsCategory as TreePageModel;
 use BezhanSalleh\FilamentShield\Traits\HasPageShield;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\TextInput;
 use SolutionForest\FilamentTree\Pages\TreePage as BasePage;
 
@@ -67,9 +68,8 @@ class NewsCategory extends BasePage
         return [];
     }
 
-    // CUSTOMIZE ICON OF EACH RECORD, CAN DELETE
-    // public function getTreeRecordIcon(?\Illuminate\Database\Eloquent\Model $record = null): ?string
-    // {
-    //     return null;
-    // }
+    public static function canAccess(array $parameters = []): bool
+    {
+        return Filament::auth()->user()->hasRole('super-admin') || Filament::auth()->user()->can(static::getPermissionName());
+    }
 }

@@ -6,6 +6,7 @@ namespace App\Filament\Pages;
 
 use App\Models\Navigation as TreePageModel;
 use BezhanSalleh\FilamentShield\Traits\HasPageShield;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
 use Illuminate\Database\Eloquent\Model;
@@ -103,5 +104,10 @@ class Navigation extends BasePage
             $this->getEditAction(),
             $this->getDeleteAction(),
         ];
+    }
+
+    public static function canAccess(array $parameters = []): bool
+    {
+        return Filament::auth()->user()->hasRole('super-admin') || Filament::auth()->user()->can(static::getPermissionName());
     }
 }
