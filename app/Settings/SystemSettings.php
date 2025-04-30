@@ -33,7 +33,7 @@ class SystemSettings extends Settings
 
     public static function group(): string
     {
-        return 'admin';
+        return 'system';
     }
 
     public static function getSiteName(): string
