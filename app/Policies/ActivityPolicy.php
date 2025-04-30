@@ -14,7 +14,7 @@ class ActivityPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_activity');
+        return $user->hasRole('super-admin') || $user->can('view_any_activity');
     }
 
     /**
@@ -22,7 +22,7 @@ class ActivityPolicy
      */
     public function view(User $user, Activity $activity): bool
     {
-        return $user->can('view_activity');
+        return $user->hasRole('super-admin') || $user->can('view_activity');
     }
 
     /**
@@ -30,7 +30,7 @@ class ActivityPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_activity');
+        return $user->hasRole('super-admin') || $user->can('create_activity');
     }
 
     /**
@@ -38,7 +38,7 @@ class ActivityPolicy
      */
     public function update(User $user, Activity $activity): bool
     {
-        return $user->can('update_activity');
+        return $user->hasRole('super-admin') || $user->can('update_activity');
     }
 
     /**
@@ -46,7 +46,7 @@ class ActivityPolicy
      */
     public function delete(User $user, Activity $activity): bool
     {
-        return $user->can('delete_activity');
+        return $user->hasRole('super-admin') || $user->can('delete_activity');
     }
 
     /**
@@ -54,7 +54,7 @@ class ActivityPolicy
      */
     public function restore(User $user, Activity $activity): bool
     {
-        return $user->can('restore_activity');
+        return $user->hasRole('super-admin') || $user->can('restore_activity');
     }
 
     /**
@@ -62,6 +62,6 @@ class ActivityPolicy
      */
     public function forceDelete(User $user, Activity $activity): bool
     {
-        return $user->can('force_delete_activity');
+        return $user->hasRole('super-admin') || $user->can('force_delete_activity');
     }
 }

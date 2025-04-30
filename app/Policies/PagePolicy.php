@@ -14,7 +14,7 @@ class PagePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_page');
+        return $user->hasRole('super-admin') || $user->can('view_any_page');
     }
 
     /**
@@ -22,7 +22,7 @@ class PagePolicy
      */
     public function view(User $user, Page $page): bool
     {
-        return $user->can('view_page');
+        return $user->hasRole('super-admin') || $user->can('view_page');
     }
 
     /**
@@ -30,7 +30,7 @@ class PagePolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_page');
+        return $user->hasRole('super-admin') || $user->can('create_page');
     }
 
     /**
@@ -38,7 +38,7 @@ class PagePolicy
      */
     public function update(User $user, Page $page): bool
     {
-        return $user->can('update_page');
+        return $user->hasRole('super-admin') || $user->can('update_page');
     }
 
     /**
@@ -46,7 +46,7 @@ class PagePolicy
      */
     public function delete(User $user, Page $page): bool
     {
-        return $user->can('delete_page');
+        return $user->hasRole('super-admin') || $user->can('delete_page');
     }
 
     /**
@@ -54,7 +54,7 @@ class PagePolicy
      */
     public function restore(User $user, Page $page): bool
     {
-        return $user->can('restore_page');
+        return $user->hasRole('super-admin') || $user->can('restore_page');
     }
 
     /**
@@ -62,6 +62,6 @@ class PagePolicy
      */
     public function forceDelete(User $user, Page $page): bool
     {
-        return $user->can('force_delete_page');
+        return $user->hasRole('super-admin') || $user->can('force_delete_page');
     }
 }

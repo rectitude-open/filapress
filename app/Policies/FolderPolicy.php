@@ -14,7 +14,7 @@ class FolderPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_folder');
+        return $user->hasRole('super-admin') || $user->can('view_any_folder');
     }
 
     /**
@@ -22,7 +22,7 @@ class FolderPolicy
      */
     public function view(User $user, Folder $folder): bool
     {
-        return $user->can('view_folder');
+        return $user->hasRole('super-admin') || $user->can('view_folder');
     }
 
     /**
@@ -30,7 +30,7 @@ class FolderPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_folder');
+        return $user->hasRole('super-admin') || $user->can('create_folder');
     }
 
     /**
@@ -38,7 +38,7 @@ class FolderPolicy
      */
     public function update(User $user, Folder $folder): bool
     {
-        return $user->can('update_folder');
+        return $user->hasRole('super-admin') || $user->can('update_folder');
     }
 
     /**
@@ -46,7 +46,7 @@ class FolderPolicy
      */
     public function delete(User $user, Folder $folder): bool
     {
-        return $user->can('delete_folder');
+        return $user->hasRole('super-admin') || $user->can('delete_folder');
     }
 
     /**
@@ -54,7 +54,7 @@ class FolderPolicy
      */
     public function restore(User $user, Folder $folder): bool
     {
-        return $user->can('restore_folder');
+        return $user->hasRole('super-admin') || $user->can('restore_folder');
     }
 
     /**
@@ -62,6 +62,6 @@ class FolderPolicy
      */
     public function forceDelete(User $user, Folder $folder): bool
     {
-        return $user->can('force_delete_folder');
+        return $user->hasRole('super-admin') || $user->can('force_delete_folder');
     }
 }

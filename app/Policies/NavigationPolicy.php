@@ -14,7 +14,7 @@ class NavigationPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_navigation');
+        return $user->hasRole('super-admin') || $user->can('view_any_navigation');
     }
 
     /**
@@ -22,7 +22,7 @@ class NavigationPolicy
      */
     public function view(User $user, Navigation $navigation): bool
     {
-        return $user->can('view_navigation');
+        return $user->hasRole('super-admin') || $user->can('view_navigation');
     }
 
     /**
@@ -30,7 +30,7 @@ class NavigationPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_navigation');
+        return $user->hasRole('super-admin') || $user->can('create_navigation');
     }
 
     /**
@@ -38,7 +38,7 @@ class NavigationPolicy
      */
     public function update(User $user, Navigation $navigation): bool
     {
-        return $user->can('update_navigation');
+        return $user->hasRole('super-admin') || $user->can('update_navigation');
     }
 
     /**
@@ -46,7 +46,7 @@ class NavigationPolicy
      */
     public function delete(User $user, Navigation $navigation): bool
     {
-        return $user->can('delete_navigation');
+        return $user->hasRole('super-admin') || $user->can('delete_navigation');
     }
 
     /**
@@ -54,7 +54,7 @@ class NavigationPolicy
      */
     public function restore(User $user, Navigation $navigation): bool
     {
-        return $user->can('restore_navigation');
+        return $user->hasRole('super-admin') || $user->can('restore_navigation');
     }
 
     /**
@@ -62,6 +62,6 @@ class NavigationPolicy
      */
     public function forceDelete(User $user, Navigation $navigation): bool
     {
-        return $user->can('force_delete_navigation');
+        return $user->hasRole('super-admin') || $user->can('force_delete_navigation');
     }
 }

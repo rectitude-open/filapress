@@ -13,7 +13,7 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_user');
+        return $user->hasRole('super-admin') || $user->can('view_any_user');
     }
 
     /**
@@ -21,7 +21,7 @@ class UserPolicy
      */
     public function view(User $user, User $model): bool
     {
-        return $user->can('view_user');
+        return $user->hasRole('super-admin') || $user->can('view_user');
     }
 
     /**
@@ -29,7 +29,7 @@ class UserPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_user');
+        return $user->hasRole('super-admin') || $user->can('create_user');
     }
 
     /**
@@ -37,7 +37,7 @@ class UserPolicy
      */
     public function update(User $user, User $model): bool
     {
-        return $user->can('update_user');
+        return $user->hasRole('super-admin') || $user->can('update_user');
     }
 
     /**
@@ -45,7 +45,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model): bool
     {
-        return $user->can('delete_user');
+        return $user->hasRole('super-admin') || $user->can('delete_user');
     }
 
     /**
@@ -53,7 +53,7 @@ class UserPolicy
      */
     public function restore(User $user, User $model): bool
     {
-        return $user->can('restore_user');
+        return $user->hasRole('super-admin') || $user->can('restore_user');
     }
 
     /**
@@ -61,6 +61,6 @@ class UserPolicy
      */
     public function forceDelete(User $user, User $model): bool
     {
-        return $user->can('force_delete_user');
+        return $user->hasRole('super-admin') || $user->can('force_delete_user');
     }
 }

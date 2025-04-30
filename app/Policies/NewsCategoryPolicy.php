@@ -14,7 +14,7 @@ class NewsCategoryPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_news_category');
+        return $user->hasRole('super-admin') || $user->can('view_any_news_category');
     }
 
     /**
@@ -22,7 +22,7 @@ class NewsCategoryPolicy
      */
     public function view(User $user, NewsCategory $newsCategory): bool
     {
-        return $user->can('view_news_category');
+        return $user->hasRole('super-admin') || $user->can('view_news_category');
     }
 
     /**
@@ -30,7 +30,7 @@ class NewsCategoryPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_news_category');
+        return $user->hasRole('super-admin') || $user->can('create_news_category');
     }
 
     /**
@@ -38,7 +38,7 @@ class NewsCategoryPolicy
      */
     public function update(User $user, NewsCategory $newsCategory): bool
     {
-        return $user->can('update_news_category');
+        return $user->hasRole('super-admin') || $user->can('update_news_category');
     }
 
     /**
@@ -46,7 +46,7 @@ class NewsCategoryPolicy
      */
     public function delete(User $user, NewsCategory $newsCategory): bool
     {
-        return $user->can('delete_news_category');
+        return $user->hasRole('super-admin') || $user->can('delete_news_category');
     }
 
     /**
@@ -54,7 +54,7 @@ class NewsCategoryPolicy
      */
     public function restore(User $user, NewsCategory $newsCategory): bool
     {
-        return $user->can('restore_news_category');
+        return $user->hasRole('super-admin') || $user->can('restore_news_category');
     }
 
     /**
@@ -62,6 +62,6 @@ class NewsCategoryPolicy
      */
     public function forceDelete(User $user, NewsCategory $newsCategory): bool
     {
-        return $user->can('force_delete_news_category');
+        return $user->hasRole('super-admin') || $user->can('force_delete_news_category');
     }
 }

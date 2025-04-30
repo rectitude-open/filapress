@@ -14,7 +14,7 @@ class MailLogPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_mail_logs');
+        return $user->hasRole('super-admin') || $user->can('view_any_mail_logs');
     }
 
     /**
@@ -22,7 +22,7 @@ class MailLogPolicy
      */
     public function view(User $user, MailLog $mailLog): bool
     {
-        return $user->can('view_mail_log');
+        return $user->hasRole('super-admin') || $user->can('view_mail_log');
     }
 
     /**
@@ -30,7 +30,7 @@ class MailLogPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_mail_log');
+        return $user->hasRole('super-admin') || $user->can('create_mail_log');
     }
 
     /**
@@ -38,7 +38,7 @@ class MailLogPolicy
      */
     public function update(User $user, MailLog $mailLog): bool
     {
-        return $user->can('update_mail_log');
+        return $user->hasRole('super-admin') || $user->can('update_mail_log');
     }
 
     /**
@@ -46,7 +46,7 @@ class MailLogPolicy
      */
     public function delete(User $user, MailLog $mailLog): bool
     {
-        return $user->can('delete_mail_log');
+        return $user->hasRole('super-admin') || $user->can('delete_mail_log');
     }
 
     /**
@@ -54,7 +54,7 @@ class MailLogPolicy
      */
     public function restore(User $user, MailLog $mailLog): bool
     {
-        return $user->can('restore_mail_log');
+        return $user->hasRole('super-admin') || $user->can('restore_mail_log');
     }
 
     /**
@@ -62,6 +62,6 @@ class MailLogPolicy
      */
     public function forceDelete(User $user, MailLog $mailLog): bool
     {
-        return $user->can('force_delete_mail_log');
+        return $user->hasRole('super-admin') || $user->can('force_delete_mail_log');
     }
 }

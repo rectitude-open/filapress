@@ -14,7 +14,7 @@ class MediaPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_media');
+        return $user->hasRole('super-admin') || $user->can('view_any_media');
     }
 
     /**
@@ -22,7 +22,7 @@ class MediaPolicy
      */
     public function view(User $user, Media $media): bool
     {
-        return $user->can('view_media');
+        return $user->hasRole('super-admin') || $user->can('view_media');
     }
 
     /**
@@ -30,7 +30,7 @@ class MediaPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_media');
+        return $user->hasRole('super-admin') || $user->can('create_media');
     }
 
     /**
@@ -38,7 +38,7 @@ class MediaPolicy
      */
     public function update(User $user, Media $media): bool
     {
-        return $user->can('update_media');
+        return $user->hasRole('super-admin') || $user->can('update_media');
     }
 
     /**
@@ -46,7 +46,7 @@ class MediaPolicy
      */
     public function delete(User $user, Media $media): bool
     {
-        return $user->can('delete_media');
+        return $user->hasRole('super-admin') || $user->can('delete_media');
     }
 
     /**
@@ -54,7 +54,7 @@ class MediaPolicy
      */
     public function restore(User $user, Media $media): bool
     {
-        return $user->can('restore_media');
+        return $user->hasRole('super-admin') || $user->can('restore_media');
     }
 
     /**
@@ -62,6 +62,6 @@ class MediaPolicy
      */
     public function forceDelete(User $user, Media $media): bool
     {
-        return $user->can('force_delete_media');
+        return $user->hasRole('super-admin') || $user->can('force_delete_media');
     }
 }

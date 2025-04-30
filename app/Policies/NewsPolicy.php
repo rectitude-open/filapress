@@ -14,7 +14,7 @@ class NewsPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_news');
+        return $user->hasRole('super-admin') || $user->can('view_any_news');
     }
 
     /**
@@ -22,7 +22,7 @@ class NewsPolicy
      */
     public function view(User $user, News $news): bool
     {
-        return $user->can('view_news');
+        return $user->hasRole('super-admin') || $user->can('view_news');
     }
 
     /**
@@ -30,7 +30,7 @@ class NewsPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_news');
+        return $user->hasRole('super-admin') || $user->can('create_news');
     }
 
     /**
@@ -38,7 +38,7 @@ class NewsPolicy
      */
     public function update(User $user, News $news): bool
     {
-        return $user->can('update_news');
+        return $user->hasRole('super-admin') || $user->can('update_news');
     }
 
     /**
@@ -46,7 +46,7 @@ class NewsPolicy
      */
     public function delete(User $user, News $news): bool
     {
-        return $user->can('delete_news');
+        return $user->hasRole('super-admin') || $user->can('delete_news');
     }
 
     /**
@@ -54,7 +54,7 @@ class NewsPolicy
      */
     public function restore(User $user, News $news): bool
     {
-        return $user->can('restore_news');
+        return $user->hasRole('super-admin') || $user->can('restore_news');
     }
 
     /**
@@ -62,6 +62,6 @@ class NewsPolicy
      */
     public function forceDelete(User $user, News $news): bool
     {
-        return $user->can('force_delete_news');
+        return $user->hasRole('super-admin') || $user->can('force_delete_news');
     }
 }

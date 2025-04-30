@@ -14,7 +14,7 @@ class ContactFormPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_contact_form');
+        return $user->hasRole('super-admin') || $user->can('view_any_contact_form');
     }
 
     /**
@@ -22,7 +22,7 @@ class ContactFormPolicy
      */
     public function view(User $user, ContactForm $contactForm): bool
     {
-        return $user->can('view_contact_form');
+        return $user->hasRole('super-admin') || $user->can('view_contact_form');
     }
 
     /**
@@ -30,7 +30,7 @@ class ContactFormPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_contact_form');
+        return $user->hasRole('super-admin') || $user->can('create_contact_form');
     }
 
     /**
@@ -38,7 +38,7 @@ class ContactFormPolicy
      */
     public function update(User $user, ContactForm $contactForm): bool
     {
-        return $user->can('update_contact_form');
+        return $user->hasRole('super-admin') || $user->can('update_contact_form');
     }
 
     /**
@@ -46,7 +46,7 @@ class ContactFormPolicy
      */
     public function delete(User $user, ContactForm $contactForm): bool
     {
-        return $user->can('delete_contact_form');
+        return $user->hasRole('super-admin') || $user->can('delete_contact_form');
     }
 
     /**
@@ -54,7 +54,7 @@ class ContactFormPolicy
      */
     public function restore(User $user, ContactForm $contactForm): bool
     {
-        return $user->can('restore_contact_form');
+        return $user->hasRole('super-admin') || $user->can('restore_contact_form');
     }
 
     /**
@@ -62,6 +62,6 @@ class ContactFormPolicy
      */
     public function forceDelete(User $user, ContactForm $contactForm): bool
     {
-        return $user->can('force_delete_contact_form');
+        return $user->hasRole('super-admin') || $user->can('force_delete_contact_form');
     }
 }
