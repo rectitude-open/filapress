@@ -7,7 +7,7 @@ namespace App\Settings;
 use Illuminate\Support\Facades\Storage;
 use Spatie\LaravelSettings\Settings;
 
-class ApplicationSettings extends Settings
+class SystemSettings extends Settings
 {
     public string $site_name;
 

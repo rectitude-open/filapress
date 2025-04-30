@@ -9,7 +9,7 @@ use App\Policies\ActivityPolicy;
 use App\Policies\FolderPolicy;
 use App\Policies\MailLogPolicy;
 use App\Policies\MediaPolicy;
-use App\Settings\ApplicationSettings;
+use App\Settings\SystemSettings;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\FontProviders\LocalFontProvider;
 use Filament\Forms\Components\DateTimePicker;
@@ -38,6 +38,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Livewire\Livewire;
 use MarcoGermani87\FilamentCaptcha\FilamentCaptcha;
+use RectitudeOpen\FilamentBanManager\FilamentBanManagerPlugin;
 use Spatie\Activitylog\Models\Activity;
 use Tapp\FilamentMailLog\FilamentMailLogPlugin;
 use Tapp\FilamentMailLog\Models\MailLog;
@@ -45,7 +46,6 @@ use TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin;
 use TomatoPHP\FilamentMediaManager\Models\Folder;
 use TomatoPHP\FilamentMediaManager\Models\Media;
 use TomatoPHP\FilamentUsers\FilamentUsersPlugin;
-use RectitudeOpen\FilamentBanManager\FilamentBanManagerPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -81,9 +81,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin-'.config('admin.path'))
             ->path('admin-'.config('admin.path'))
             ->login(Login::class)
-            ->brandName(fn () => ApplicationSettings::getSiteName())
-            ->brandLogo(fn () => ApplicationSettings::getLogoUrl())
-            ->favicon(fn () => ApplicationSettings::getFaviconUrl())
+            ->brandName(fn () => SystemSettings::getSiteName())
+            ->brandLogo(fn () => SystemSettings::getLogoUrl())
+            ->favicon(fn () => SystemSettings::getFaviconUrl())
             ->navigationGroups([
                 NavigationGroup::make()
                     ->label(__('menu.nav_group.content')),
@@ -132,7 +132,7 @@ class AdminPanelProvider extends PanelProvider
                 ThemesPlugin::make(),
                 FilamentCaptcha::make(),
                 FilamentMailLogPlugin::make(),
-                FilamentBanManagerPlugin::make()
+                FilamentBanManagerPlugin::make(),
             ])
             ->resources([
                 config('filament-logger.activity_resource'),

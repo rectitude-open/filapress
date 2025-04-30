@@ -4,27 +4,27 @@ declare(strict_types=1);
 
 namespace App\Filament\Pages;
 
-use App\Filament\Pages\ApplicationSettings\Forms\ApplicationForm;
-use App\Filament\Pages\ApplicationSettings\Forms\MailForm;
-use App\Settings\ApplicationSettings;
+use App\Filament\Pages\SystemSettings\Forms\ApplicationForm;
+use App\Filament\Pages\SystemSettings\Forms\MailForm;
+use App\Settings\SystemSettings;
 use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
 
-class ApplicationSettingsPage extends SettingsPage
+class SystemSettingsPage extends SettingsPage
 {
     use HasPageShield;
 
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
-    protected static ?string $title = 'Application Settings';
+    protected static ?string $title = 'System';
 
     protected static ?string $slug = 'settings/application';
 
     protected static ?string $navigationGroup = 'Settings';
 
-    protected static string $settings = ApplicationSettings::class;
+    protected static string $settings = SystemSettings::class;
 
     public function mount(): void
     {
@@ -35,8 +35,8 @@ class ApplicationSettingsPage extends SettingsPage
     {
         $arrTabs = [];
 
-        $arrTabs[] = Tabs\Tab::make('Application Tab')
-            ->label('Application')
+        $arrTabs[] = Tabs\Tab::make('System Tab')
+            ->label('System')
             ->icon('heroicon-o-tv')
             ->schema(ApplicationForm::get());
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Settings\ApplicationSettings;
+use App\Settings\SystemSettings;
 
 return [
 
@@ -11,7 +11,7 @@ return [
      * put them (manually) here.
      */
     'settings' => [
-        ApplicationSettings::class,
+        SystemSettings::class,
     ],
 
     /*

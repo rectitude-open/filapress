@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Pages\ApplicationSettings\Forms;
+namespace App\Filament\Pages\SystemSettings\Forms;
 
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
