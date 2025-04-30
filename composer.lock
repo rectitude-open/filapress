@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54efcead357a7cb3939af7a2f4bf0431",
+    "content-hash": "7acf21741fef47141f4db56c96fb52b5",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6849,16 +6849,16 @@
         },
         {
             "name": "rectitude-open/filament-ban-manager",
-            "version": "v1.2.2",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectitude-open/filament-ban-manager.git",
-                "reference": "d26279f1c9bbe215b7f4147d10baf342670154bf"
+                "reference": "d2d17b7a911adf18121cc7c6c6899fe44e59cf80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectitude-open/filament-ban-manager/zipball/d26279f1c9bbe215b7f4147d10baf342670154bf",
-                "reference": "d26279f1c9bbe215b7f4147d10baf342670154bf",
+                "url": "https://api.github.com/repos/rectitude-open/filament-ban-manager/zipball/d2d17b7a911adf18121cc7c6c6899fe44e59cf80",
+                "reference": "d2d17b7a911adf18121cc7c6c6899fe44e59cf80",
                 "shasum": ""
             },
             "require": {
@@ -6884,14 +6884,14 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Rectitudeopen\\FilamentBanManager\\FilamentBanManagerServiceProvider"
+                        "RectitudeOpen\\FilamentBanManager\\FilamentBanManagerServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Rectitudeopen\\FilamentBanManager\\": "src/",
-                    "Rectitudeopen\\FilamentBanManager\\Database\\Factories\\": "database/factories/"
+                    "RectitudeOpen\\FilamentBanManager\\": "src/",
+                    "RectitudeOpen\\FilamentBanManager\\Database\\Factories\\": "database/factories/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -6917,7 +6917,7 @@
                 "issues": "https://github.com/rectitude-open/filament-ban-manager/issues",
                 "source": "https://github.com/rectitude-open/filament-ban-manager"
             },
-            "time": "2025-04-28T10:56:26+00:00"
+            "time": "2025-04-29T05:42:37+00:00"
         },
         {
             "name": "rectitude-open/filament-tinyeditor-6",

@@ -45,7 +45,7 @@ use TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin;
 use TomatoPHP\FilamentMediaManager\Models\Folder;
 use TomatoPHP\FilamentMediaManager\Models\Media;
 use TomatoPHP\FilamentUsers\FilamentUsersPlugin;
-use Rectitudeopen\FilamentBanManager\FilamentBanManagerPlugin;
+use RectitudeOpen\FilamentBanManager\FilamentBanManagerPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
