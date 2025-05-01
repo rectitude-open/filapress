@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Pages\Auth;
 
+use App\Settings\SystemSettings;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use Filament\Facades\Filament;
 use Filament\Forms\Form;
@@ -16,7 +17,6 @@ use Mchev\Banhammer\IP;
 use Spatie\Activitylog\ActivityLogger;
 use Spatie\Activitylog\ActivityLogStatus;
 use Spatie\Activitylog\Models\Activity;
-use App\Settings\SystemSettings;
 
 class Login extends BaseLogin
 {

@@ -6,13 +6,13 @@ namespace App\Filament\Pages;
 
 use App\Filament\Pages\SystemSettings\Forms\ApplicationForm;
 use App\Filament\Pages\SystemSettings\Forms\MailForm;
+use App\Filament\Pages\SystemSettings\Forms\SecurityForm;
 use App\Settings\SystemSettings;
 use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
-use App\Filament\Pages\SystemSettings\Forms\SecurityForm;
 
 class SystemSettingsPage extends SettingsPage
 {
