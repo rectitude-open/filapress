@@ -6,6 +6,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\Login;
 use App\Policies\ActivityPolicy;
+use App\Policies\BanPolicy;
 use App\Policies\FolderPolicy;
 use App\Policies\MailLogPolicy;
 use App\Policies\MediaPolicy;
@@ -39,6 +40,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Livewire\Livewire;
 use MarcoGermani87\FilamentCaptcha\FilamentCaptcha;
 use RectitudeOpen\FilamentBanManager\FilamentBanManagerPlugin;
+use RectitudeOpen\FilamentBanManager\Models\Ban;
 use Spatie\Activitylog\Models\Activity;
 use Tapp\FilamentMailLog\FilamentMailLogPlugin;
 use Tapp\FilamentMailLog\Models\MailLog;
@@ -72,6 +74,7 @@ class AdminPanelProvider extends PanelProvider
         Gate::policy(Activity::class, ActivityPolicy::class);
         Gate::policy(Folder::class, FolderPolicy::class);
         Gate::policy(Media::class, MediaPolicy::class);
+        Gate::policy(Ban::class, BanPolicy::class);
     }
 
     public function panel(Panel $panel): Panel
