@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
     {
         Role::create([
             'name' => 'super-admin',
-            'guard_name' => 'web',
+            'guard_name' => 'admin',
         ]);
 
         Role::create([
             'name' => 'webmaster',
-            'guard_name' => 'web',
+            'guard_name' => 'admin',
         ]);
 
         $superAdmin = User::create([

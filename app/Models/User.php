@@ -24,6 +24,8 @@ class User extends Authenticatable implements Auditable, FilamentUser
     use HasRoles;
     use Notifiable;
 
+    protected $guard_name = 'admin';
+
     /**
      * The attributes that are mass assignable.
      *
