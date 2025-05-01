@@ -8,6 +8,8 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Overtrue\LaravelVersionable\Versionable;
+use Overtrue\LaravelVersionable\VersionStrategy;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -20,8 +22,13 @@ class News extends Model implements HasMedia
     use InteractsWithMedia;
     use Sluggable;
     use SoftDeletes;
+    use Versionable;
 
     protected $fillable = ['title', 'slug', 'summary', 'content', 'weight', 'status', 'created_at'];
+
+    protected $versionable = ['title', 'slug', 'summary', 'content', 'weight', 'status'];
+
+    protected $versionStrategy = VersionStrategy::SNAPSHOT;
 
     public function categories()
     {

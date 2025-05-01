@@ -183,6 +183,7 @@ class NewsResource extends Resource
             'index' => Pages\ListNews::route('/'),
             'create' => Pages\CreateNews::route('/create'),
             'edit' => Pages\EditNews::route('/{record}/edit'),
+            'revisions' => Pages\NewsRevisions::route('/{record}/revisions'),
         ];
     }
 }

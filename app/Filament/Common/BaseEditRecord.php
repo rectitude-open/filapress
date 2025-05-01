@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Filament\Common;
 
 use Filament\Actions;
+use Filament\Actions\ActionGroup;
 use Filament\Resources\Pages\EditRecord;
+use Mansoor\FilamentVersionable\Page\RevisionsAction;
 
 abstract class BaseEditRecord extends EditRecord
 {
@@ -16,30 +18,73 @@ abstract class BaseEditRecord extends EditRecord
 
     protected function getHeaderActions(): array
     {
+        $preActions = [];
+
+        $resource = static::getResource();
+        if ($resource::hasPage('revisions')) {
+            $preActions[] = $this->getRevisionsAction();
+        }
+
         return [
-            Actions\DeleteAction::make()
-                ->icon('heroicon-o-trash'),
-            $this->getCancelFormAction()
-                ->icon('heroicon-o-arrow-left')
-                ->label(__('action.back')),
-            $this->getSubmitFormAction()
-                ->icon('heroicon-o-paper-airplane')
-                ->label(__('action.save'))
-                ->formId('form'),
+            ActionGroup::make([
+                ...$preActions,
+                Actions\DeleteAction::make()
+                    ->icon('heroicon-o-trash'),
+            ])
+                ->label('More actions')
+                ->icon('heroicon-m-ellipsis-vertical')
+                ->color('gray')
+                ->button(),
+            $this->getBackAction(),
+            $this->getSubmitAction(),
         ];
     }
 
     protected function getFormActions(): array
     {
+        $postActions = [];
+
+        $resource = static::getResource();
+        if ($resource::hasPage('revisions')) {
+            $postActions[] = $this->getRevisionsAction();
+        }
+
         return [
-            $this->getSubmitFormAction()
-                ->icon('heroicon-o-paper-airplane')
-                ->label(__('action.save')),
-            $this->getCancelFormAction()
-                ->icon('heroicon-o-arrow-left')
-                ->label(__('action.back')),
-            Actions\DeleteAction::make()
-                ->icon('heroicon-o-trash'),
+            $this->getSubmitAction(),
+            $this->getBackAction(),
+            ActionGroup::make([
+                ...$postActions,
+                Actions\DeleteAction::make()
+                    ->icon('heroicon-o-trash'),
+            ])
+                ->label('More actions')
+                ->icon('heroicon-m-ellipsis-vertical')
+                ->color('gray')
+                ->button(),
         ];
+    }
+
+    protected function getBackAction(): Actions\Action
+    {
+        return $this->getCancelFormAction()
+            ->icon('heroicon-o-arrow-left')
+            ->label(__('action.back'));
+    }
+
+    protected function getSubmitAction(): Actions\Action
+    {
+        return $this->getSubmitFormAction()
+            ->icon('heroicon-o-paper-airplane')
+            ->label(__('action.save'))
+            ->formId('form');
+    }
+
+    protected function getRevisionsAction(): Actions\Action
+    {
+        return RevisionsAction::make()
+            ->grouped()
+            ->color('info')
+            ->icon('heroicon-o-clock')
+            ->label(__('action.revisions'));
     }
 }

@@ -7,4 +7,5 @@ return [
     'back' => 'Back',
     'save' => 'Save',
     'create_another' => 'Publish and create another',
+    'revisions' => 'Revisions',
 ];
