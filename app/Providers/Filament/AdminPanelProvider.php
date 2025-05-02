@@ -39,6 +39,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Livewire\Livewire;
 use MarcoGermani87\FilamentCaptcha\FilamentCaptcha;
+use Mchev\Banhammer\Middleware\IPBanned;
 use RectitudeOpen\FilamentBanManager\FilamentBanManagerPlugin;
 use RectitudeOpen\FilamentBanManager\Models\Ban;
 use Spatie\Activitylog\Models\Activity;
@@ -127,6 +128,7 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
                 SetTheme::class,
+                IPBanned::class,
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
