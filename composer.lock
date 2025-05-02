@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39f50d87ce9ef73a4461e5fc44fd63b8",
+    "content-hash": "84be660b72f46c5a24e62ec1463fc608",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6849,16 +6849,16 @@
         },
         {
             "name": "rectitude-open/filament-ban-manager",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectitude-open/filament-ban-manager.git",
-                "reference": "5faa80a6d1a6924e9684c27dcd730e13bdf62936"
+                "reference": "c05c4f7e3f1bf1d20078f1348611fe8ae8912bfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectitude-open/filament-ban-manager/zipball/5faa80a6d1a6924e9684c27dcd730e13bdf62936",
-                "reference": "5faa80a6d1a6924e9684c27dcd730e13bdf62936",
+                "url": "https://api.github.com/repos/rectitude-open/filament-ban-manager/zipball/c05c4f7e3f1bf1d20078f1348611fe8ae8912bfa",
+                "reference": "c05c4f7e3f1bf1d20078f1348611fe8ae8912bfa",
                 "shasum": ""
             },
             "require": {
@@ -6917,7 +6917,7 @@
                 "issues": "https://github.com/rectitude-open/filament-ban-manager/issues",
                 "source": "https://github.com/rectitude-open/filament-ban-manager"
             },
-            "time": "2025-04-30T03:52:44+00:00"
+            "time": "2025-05-02T06:19:02+00:00"
         },
         {
             "name": "rectitude-open/filament-tinyeditor-6",
