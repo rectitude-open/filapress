@@ -9,5 +9,6 @@ return [
     'nav_item.navigation' => 'Navigation',
     'nav_item.contact_form' => 'Contact Form',
     'nav_item.mail_log' => 'Mail Log',
-    'nav_item.ban' => 'Ban',
+    'nav_item.ban' => 'Bans',
+    'nav_item.admin' => 'Admins',
 ];

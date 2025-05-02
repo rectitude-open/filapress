@@ -25,11 +25,6 @@ class EditAdmin extends EditRecord
         return $data;
     }
 
-    public function getTitle(): string
-    {
-        return trans('filament-users::user.resource.title.edit');
-    }
-
     protected function getActions(): array
     {
         // ! config('filament-users.impersonate') ?: $ret[] = Impersonate::make()->record($this->getRecord());

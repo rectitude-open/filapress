@@ -31,27 +31,22 @@ class AdminResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return trans('filament-users::user.resource.label');
-    }
-
-    public static function getPluralLabel(): string
-    {
-        return trans('filament-users::user.resource.label');
+        return __('menu.nav_item.admin');
     }
 
     public static function getLabel(): string
     {
-        return trans('filament-users::user.resource.single');
+        return __('menu.nav_item.admin');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return config('filament-users.group');
+        return __('menu.nav_group.security');
     }
 
     public function getTitle(): string
     {
-        return trans('filament-users::user.resource.title.resource');
+        return __('menu.nav_item.admin');
     }
 
     public static function getRelations(): array
