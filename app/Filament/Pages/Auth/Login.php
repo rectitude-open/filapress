@@ -65,6 +65,8 @@ class Login extends BaseLogin
                     ],
                     now()->addMinutes($systemSettings->login_attempts_lockout_duration ?? 60)->toDateTimeString(),
                 );
+
+                $this->logIPBanned($ip);
                 $this->getBannedNotification()?->send();
 
                 return null;
@@ -111,6 +113,18 @@ class Login extends BaseLogin
             ->log($description);
     }
 
+    protected function logIPBanned(string $ip): void
+    {
+        activity()
+            ->withProperties([
+                'ip' => $ip,
+                'user_agent' => request()->header('user-agent'),
+            ])
+            ->event('IPBanned')
+            ->useLog('Access')
+            ->log('Banned for too many login attempts');
+    }
+
     public function form(Form $form): Form
     {
         $systemSettings = app(SystemSettings::class);
@@ -123,7 +137,6 @@ class Login extends BaseLogin
                     ->label('Captcha')
                     ->required()
                 : null,
-            // CaptchaField::make('captcha'),
             $this->getRememberFormComponent(),
         ];
 
