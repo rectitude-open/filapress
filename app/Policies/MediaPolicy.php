@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
-use App\Models\User;
+use App\Models\Admin;
 use TomatoPHP\FilamentMediaManager\Models\Media;
 
 class MediaPolicy
@@ -12,56 +12,56 @@ class MediaPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_any_media');
+        return $admin->hasRole('super-admin') || $admin->can('view_any_media');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Media $media): bool
+    public function view(Admin $admin, Media $media): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_media');
+        return $admin->hasRole('super-admin') || $admin->can('view_media');
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('create_media');
+        return $admin->hasRole('super-admin') || $admin->can('create_media');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Media $media): bool
+    public function update(Admin $admin, Media $media): bool
     {
-        return $user->hasRole('super-admin') || $user->can('update_media');
+        return $admin->hasRole('super-admin') || $admin->can('update_media');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Media $media): bool
+    public function delete(Admin $admin, Media $media): bool
     {
-        return $user->hasRole('super-admin') || $user->can('delete_media');
+        return $admin->hasRole('super-admin') || $admin->can('delete_media');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Media $media): bool
+    public function restore(Admin $admin, Media $media): bool
     {
-        return $user->hasRole('super-admin') || $user->can('restore_media');
+        return $admin->hasRole('super-admin') || $admin->can('restore_media');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Media $media): bool
+    public function forceDelete(Admin $admin, Media $media): bool
     {
-        return $user->hasRole('super-admin') || $user->can('force_delete_media');
+        return $admin->hasRole('super-admin') || $admin->can('force_delete_media');
     }
 }

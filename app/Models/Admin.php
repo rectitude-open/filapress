@@ -14,11 +14,11 @@ use OwenIt\Auditing\Auditable as AuditableTrait;
 use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements Auditable, FilamentUser
+class Admin extends Authenticatable implements Auditable, FilamentUser
 {
     use AuditableTrait;
 
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<\Database\Factories\AdminFactory> */
     use HasFactory;
 
     use HasRoles;

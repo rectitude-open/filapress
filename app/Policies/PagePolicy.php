@@ -4,64 +4,64 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
+use App\Models\Admin;
 use App\Models\Page;
-use App\Models\User;
 
 class PagePolicy
 {
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_any_page');
+        return $admin->hasRole('super-admin') || $admin->can('view_any_page');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Page $page): bool
+    public function view(Admin $admin, Page $page): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_page');
+        return $admin->hasRole('super-admin') || $admin->can('view_page');
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('create_page');
+        return $admin->hasRole('super-admin') || $admin->can('create_page');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Page $page): bool
+    public function update(Admin $admin, Page $page): bool
     {
-        return $user->hasRole('super-admin') || $user->can('update_page');
+        return $admin->hasRole('super-admin') || $admin->can('update_page');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Page $page): bool
+    public function delete(Admin $admin, Page $page): bool
     {
-        return $user->hasRole('super-admin') || $user->can('delete_page');
+        return $admin->hasRole('super-admin') || $admin->can('delete_page');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Page $page): bool
+    public function restore(Admin $admin, Page $page): bool
     {
-        return $user->hasRole('super-admin') || $user->can('restore_page');
+        return $admin->hasRole('super-admin') || $admin->can('restore_page');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Page $page): bool
+    public function forceDelete(Admin $admin, Page $page): bool
     {
-        return $user->hasRole('super-admin') || $user->can('force_delete_page');
+        return $admin->hasRole('super-admin') || $admin->can('force_delete_page');
     }
 }

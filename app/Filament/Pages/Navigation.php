@@ -108,6 +108,9 @@ class Navigation extends BasePage
 
     public static function canAccess(array $parameters = []): bool
     {
-        return Filament::auth()->user()->hasRole('super-admin') || Filament::auth()->user()->can(static::getPermissionName());
+        /** @var ?\App\Models\Admin $admin */
+        $admin = Filament::auth()->user();
+
+        return $admin->hasRole('super-admin') || $admin->can(static::getPermissionName());
     }
 }

@@ -28,8 +28,11 @@ class BaseRevisionsPage extends RevisionsPage
 
     public static function canAccess(array $parameters = []): bool
     {
-        return Filament::auth()->user()->hasRole('super-admin') ||
-                Filament::auth()->user()->can('revisions_'.Str::of(static::getResource())
+        /** @var ?\App\Models\Admin $admin */
+        $admin = Filament::auth()->user();
+
+        return $admin->hasRole('super-admin') ||
+                $admin->can('revisions_'.Str::of(static::getResource())
                     ->afterLast('Resources\\')
                     ->before('Resource')
                     ->replace('\\', '')

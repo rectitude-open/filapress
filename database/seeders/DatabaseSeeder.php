@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Admin;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -26,14 +26,14 @@ class DatabaseSeeder extends Seeder
             'guard_name' => 'admin',
         ]);
 
-        $superAdmin = User::create([
+        $superAdmin = Admin::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@test.com',
             'password' => bcrypt('superadmin'),
         ]);
         $superAdmin->assignRole('super-admin');
 
-        $webmaster = User::create([
+        $webmaster = Admin::create([
             'name' => 'Webmaster',
             'email' => 'webmaster@test.com',
             'password' => bcrypt('webmaster'),

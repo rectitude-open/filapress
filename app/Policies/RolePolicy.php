@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
-use App\Models\User;
+use App\Models\Admin;
 use Spatie\Permission\Models\Role;
 
 class RolePolicy
@@ -12,56 +12,56 @@ class RolePolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_any_role');
+        return $admin->hasRole('super-admin') || $admin->can('view_any_role');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Role $role): bool
+    public function view(Admin $admin, Role $role): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_role');
+        return $admin->hasRole('super-admin') || $admin->can('view_role');
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('create_role');
+        return $admin->hasRole('super-admin') || $admin->can('create_role');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Role $role): bool
+    public function update(Admin $admin, Role $role): bool
     {
-        return $user->hasRole('super-admin') || $user->can('update_role');
+        return $admin->hasRole('super-admin') || $admin->can('update_role');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Role $role): bool
+    public function delete(Admin $admin, Role $role): bool
     {
-        return $user->hasRole('super-admin') || $user->can('delete_role');
+        return $admin->hasRole('super-admin') || $admin->can('delete_role');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Role $role): bool
+    public function restore(Admin $admin, Role $role): bool
     {
-        return $user->hasRole('super-admin') || $user->can('restore_role');
+        return $admin->hasRole('super-admin') || $admin->can('restore_role');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Role $role): bool
+    public function forceDelete(Admin $admin, Role $role): bool
     {
-        return $user->hasRole('super-admin') || $user->can('force_delete_role');
+        return $admin->hasRole('super-admin') || $admin->can('force_delete_role');
     }
 }

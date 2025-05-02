@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
-use App\Models\User;
+use App\Models\Admin;
 use Tapp\FilamentMailLog\Models\MailLog;
 
 class MailLogPolicy
@@ -12,56 +12,56 @@ class MailLogPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_any_mail_logs');
+        return $admin->hasRole('super-admin') || $admin->can('view_any_mail_logs');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, MailLog $mailLog): bool
+    public function view(Admin $admin, MailLog $mailLog): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_mail_log');
+        return $admin->hasRole('super-admin') || $admin->can('view_mail_log');
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('create_mail_log');
+        return $admin->hasRole('super-admin') || $admin->can('create_mail_log');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, MailLog $mailLog): bool
+    public function update(Admin $admin, MailLog $mailLog): bool
     {
-        return $user->hasRole('super-admin') || $user->can('update_mail_log');
+        return $admin->hasRole('super-admin') || $admin->can('update_mail_log');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, MailLog $mailLog): bool
+    public function delete(Admin $admin, MailLog $mailLog): bool
     {
-        return $user->hasRole('super-admin') || $user->can('delete_mail_log');
+        return $admin->hasRole('super-admin') || $admin->can('delete_mail_log');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, MailLog $mailLog): bool
+    public function restore(Admin $admin, MailLog $mailLog): bool
     {
-        return $user->hasRole('super-admin') || $user->can('restore_mail_log');
+        return $admin->hasRole('super-admin') || $admin->can('restore_mail_log');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, MailLog $mailLog): bool
+    public function forceDelete(Admin $admin, MailLog $mailLog): bool
     {
-        return $user->hasRole('super-admin') || $user->can('force_delete_mail_log');
+        return $admin->hasRole('super-admin') || $admin->can('force_delete_mail_log');
     }
 }

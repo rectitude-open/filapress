@@ -4,64 +4,64 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
+use App\Models\Admin;
 use App\Models\Navigation;
-use App\Models\User;
 
 class NavigationPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_any_navigation');
+        return $admin->hasRole('super-admin') || $admin->can('view_any_navigation');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Navigation $navigation): bool
+    public function view(Admin $admin, Navigation $navigation): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_navigation');
+        return $admin->hasRole('super-admin') || $admin->can('view_navigation');
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('create_navigation');
+        return $admin->hasRole('super-admin') || $admin->can('create_navigation');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Navigation $navigation): bool
+    public function update(Admin $admin, Navigation $navigation): bool
     {
-        return $user->hasRole('super-admin') || $user->can('update_navigation');
+        return $admin->hasRole('super-admin') || $admin->can('update_navigation');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Navigation $navigation): bool
+    public function delete(Admin $admin, Navigation $navigation): bool
     {
-        return $user->hasRole('super-admin') || $user->can('delete_navigation');
+        return $admin->hasRole('super-admin') || $admin->can('delete_navigation');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Navigation $navigation): bool
+    public function restore(Admin $admin, Navigation $navigation): bool
     {
-        return $user->hasRole('super-admin') || $user->can('restore_navigation');
+        return $admin->hasRole('super-admin') || $admin->can('restore_navigation');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Navigation $navigation): bool
+    public function forceDelete(Admin $admin, Navigation $navigation): bool
     {
-        return $user->hasRole('super-admin') || $user->can('force_delete_navigation');
+        return $admin->hasRole('super-admin') || $admin->can('force_delete_navigation');
     }
 }

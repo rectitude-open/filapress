@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
-use App\Models\User;
+use App\Models\Admin;
 use TomatoPHP\FilamentMediaManager\Models\Folder;
 
 class FolderPolicy
@@ -12,56 +12,56 @@ class FolderPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_any_folder');
+        return $admin->hasRole('super-admin') || $admin->can('view_any_folder');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Folder $folder): bool
+    public function view(Admin $admin, Folder $folder): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_folder');
+        return $admin->hasRole('super-admin') || $admin->can('view_folder');
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('create_folder');
+        return $admin->hasRole('super-admin') || $admin->can('create_folder');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Folder $folder): bool
+    public function update(Admin $admin, Folder $folder): bool
     {
-        return $user->hasRole('super-admin') || $user->can('update_folder');
+        return $admin->hasRole('super-admin') || $admin->can('update_folder');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Folder $folder): bool
+    public function delete(Admin $admin, Folder $folder): bool
     {
-        return $user->hasRole('super-admin') || $user->can('delete_folder');
+        return $admin->hasRole('super-admin') || $admin->can('delete_folder');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Folder $folder): bool
+    public function restore(Admin $admin, Folder $folder): bool
     {
-        return $user->hasRole('super-admin') || $user->can('restore_folder');
+        return $admin->hasRole('super-admin') || $admin->can('restore_folder');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Folder $folder): bool
+    public function forceDelete(Admin $admin, Folder $folder): bool
     {
-        return $user->hasRole('super-admin') || $user->can('force_delete_folder');
+        return $admin->hasRole('super-admin') || $admin->can('force_delete_folder');
     }
 }

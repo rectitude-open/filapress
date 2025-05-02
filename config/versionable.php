@@ -22,7 +22,7 @@ return [
     /**
      * The model class for user.
      */
-    'user_model' => \App\Models\User::class,
+    'user_model' => \App\Models\Admin::class,
 
     /**
      * Use uuid for version id.

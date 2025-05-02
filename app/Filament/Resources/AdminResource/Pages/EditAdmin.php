@@ -2,24 +2,23 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\UserResource\Pages;
+namespace App\Filament\Resources\AdminResource\Pages;
 
-use App\Filament\Resources\UserResource;
-use App\Models\User;
+use App\Filament\Resources\AdminResource;
+use App\Models\Admin;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
-use STS\FilamentImpersonate\Pages\Actions\Impersonate;
 
-class EditUser extends EditRecord
+class EditAdmin extends EditRecord
 {
-    protected static string $resource = UserResource::class;
+    protected static string $resource = AdminResource::class;
 
     public function mutateFormDataBeforeSave(array $data): array
     {
-        $getUser = User::where('email', $data['email'])->first();
-        if ($getUser) {
+        $getAdmin = Admin::where('email', $data['email'])->first();
+        if ($getAdmin) {
             if (empty($data['password'])) {
-                $data['password'] = $getUser->password;
+                $data['password'] = $getAdmin->password;
             }
         }
 

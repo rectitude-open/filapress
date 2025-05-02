@@ -59,7 +59,7 @@ return [
      * ---------------------------------------------
      * if you when to custom the user model path
      */
-    'model' => \App\Models\User::class,
+    'model' => \App\Models\Admin::class,
 
     /**
      * ---------------------------------------------

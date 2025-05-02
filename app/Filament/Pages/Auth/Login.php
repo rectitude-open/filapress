@@ -78,6 +78,7 @@ class Login extends BaseLogin
             $this->throwFailureValidationException();
         }
 
+        /** @var ?\App\Models\Admin $user */
         $user = Filament::auth()->user();
 
         if (

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Policies;
 
-use App\Models\User;
+use App\Models\Admin;
 use Spatie\Activitylog\Models\Activity;
 
 class ActivityPolicy
@@ -12,56 +12,56 @@ class ActivityPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_any_activity');
+        return $admin->hasRole('super-admin') || $admin->can('view_any_activity');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Activity $activity): bool
+    public function view(Admin $admin, Activity $activity): bool
     {
-        return $user->hasRole('super-admin') || $user->can('view_activity');
+        return $admin->hasRole('super-admin') || $admin->can('view_activity');
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Admin $admin): bool
     {
-        return $user->hasRole('super-admin') || $user->can('create_activity');
+        return $admin->hasRole('super-admin') || $admin->can('create_activity');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Activity $activity): bool
+    public function update(Admin $admin, Activity $activity): bool
     {
-        return $user->hasRole('super-admin') || $user->can('update_activity');
+        return $admin->hasRole('super-admin') || $admin->can('update_activity');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Activity $activity): bool
+    public function delete(Admin $admin, Activity $activity): bool
     {
-        return $user->hasRole('super-admin') || $user->can('delete_activity');
+        return $admin->hasRole('super-admin') || $admin->can('delete_activity');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Activity $activity): bool
+    public function restore(Admin $admin, Activity $activity): bool
     {
-        return $user->hasRole('super-admin') || $user->can('restore_activity');
+        return $admin->hasRole('super-admin') || $admin->can('restore_activity');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Activity $activity): bool
+    public function forceDelete(Admin $admin, Activity $activity): bool
     {
-        return $user->hasRole('super-admin') || $user->can('force_delete_activity');
+        return $admin->hasRole('super-admin') || $admin->can('force_delete_activity');
     }
 }
