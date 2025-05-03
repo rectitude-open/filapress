@@ -23,6 +23,6 @@ return new class extends SettingsMigration
         $this->migrator->add('system.login_attempts_lockout_window', 60);
         $this->migrator->add('system.login_attempts_lockout_attempts', 5);
         $this->migrator->add('system.login_attempts_lockout_duration', 60);
-        $this->migrator->add('system.enable_login_captcha', true);
+        $this->migrator->add('system.enable_login_captcha', false);
     }
 };
