@@ -49,7 +49,8 @@ return [
         'color' => 'warning',
         'logger' => ModelLogger::class,
         'register' => [
-            // App\Models\User::class,
+            App\Models\Navigation::class,
+            App\Models\NewsCategory::class,
         ],
     ],
 
