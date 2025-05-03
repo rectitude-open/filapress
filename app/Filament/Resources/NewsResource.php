@@ -138,6 +138,12 @@ class NewsResource extends Resource
                     ->label(__('Title'))
                     ->searchable()
                     ->limit(50),
+                TextColumn::make('categories.title')
+                    ->label(__('Categories'))
+                    ->searchable()
+                    ->limit(50)
+                    ->formatStateUsing(fn ($state) => implode('<br/>', explode(', ', $state)))
+                    ->html(),
                 IconColumn::make('status')
                     ->icon(fn ($state): string => match ($state) {
                         1 => 'heroicon-o-check-circle',
@@ -159,6 +165,10 @@ class NewsResource extends Resource
                         1 => 'Active',
                         2 => 'Suspended',
                     ]),
+                SelectFilter::make('categories')
+                    ->label(__('Categories'))
+                    ->relationship('categories', 'title')
+                    ->searchable(),
             ])->headerActions([
                 //
             ])->actions([
