@@ -13,12 +13,14 @@ use Overtrue\LaravelVersionable\VersionStrategy;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Tags\HasTags;
 
 class News extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\NewsFactory> */
     use HasFactory;
 
+    use HasTags;
     use InteractsWithMedia;
     use Sluggable;
     use SoftDeletes;

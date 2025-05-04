@@ -11,6 +11,7 @@ use CodeWithDennis\FilamentSelectTree\SelectTree;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
@@ -18,6 +19,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -52,11 +54,11 @@ class NewsResource extends Resource
                             ->columnSpan('full'),
                     ])->columnSpan(['xl' => 2]),
                     Grid::make()->schema([
-                        Section::make(__('Categories'))
+                        Section::make(__('Taxonomy'))
                             ->compact()
                             ->schema([
                                 SelectTree::make('categories')
-                                    ->hiddenLabel()
+                                    ->label(__('Categories'))
                                     ->relationship('categories', 'title', 'parent_id')
                                     ->placeholder(__('Select Categories'))
                                     ->parentNullValue(-1)
@@ -64,6 +66,8 @@ class NewsResource extends Resource
                                     ->defaultOpenLevel(3)
                                     ->columnSpanFull()
                                     ->required(),
+                                SpatieTagsInput::make('tags')
+                                    ->label(__('Tags')),
                             ]),
                         Section::make(__('Featured Image'))
                             ->compact()
@@ -144,6 +148,7 @@ class NewsResource extends Resource
                     ->limit(50)
                     ->formatStateUsing(fn ($state) => implode('<br/>', explode(', ', $state)))
                     ->html(),
+                SpatieTagsColumn::make('tags'),
                 IconColumn::make('status')
                     ->icon(fn ($state): string => match ($state) {
                         1 => 'heroicon-o-check-circle',
