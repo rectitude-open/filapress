@@ -32,7 +32,7 @@ class Navigation extends BasePage
         return __('menu.nav_group.content');
     }
 
-    protected static int $maxDepth = 2;
+    protected static int $maxDepth = 3;
 
     protected function getActions(): array
     {
