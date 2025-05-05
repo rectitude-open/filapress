@@ -27,9 +27,11 @@ class PageResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
+    protected static ?int $navigationSort = 10;
+
     public static function getNavigationGroup(): ?string
     {
-        return __('menu.nav_group.settings');
+        return __('menu.nav_group.content');
     }
 
     public static function form(Form $form): Form
