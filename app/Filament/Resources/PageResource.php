@@ -164,6 +164,7 @@ class PageResource extends Resource
             'index' => Pages\ListPages::route('/'),
             'create' => Pages\CreatePage::route('/create'),
             'edit' => Pages\EditPage::route('/{record}/edit'),
+            'revisions' => Pages\PageRevisions::route('/{record}/revisions'),
         ];
     }
 }
