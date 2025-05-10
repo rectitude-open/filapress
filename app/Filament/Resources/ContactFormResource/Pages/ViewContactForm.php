@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\ContactFormResource\Pages;
 
-use App\Filament\Common\BaseViewRecord;
+use RectitudeOpen\FilaPressCore\Filament\Common\BaseViewRecord;
 use App\Filament\Resources\ContactFormResource;
 use Filament\Actions\Action;
 use Illuminate\Support\Js;

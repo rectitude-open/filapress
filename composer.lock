@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1f8fee8fd73f6b54cbe219299624d4a",
+    "content-hash": "766de810f2a097c7c4a4c2da9a9243d6",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7017,6 +7017,81 @@
                 "source": "https://github.com/rectitude-open/filament-tinyeditor-6/tree/v6.3.2"
             },
             "time": "2025-04-28T08:48:44+00:00"
+        },
+        {
+            "name": "rectitude-open/filapress-core",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectitude-open/filapress-core.git",
+                "reference": "b9e982c4ae9d788d3b03cc34957f2ef625bfc45c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectitude-open/filapress-core/zipball/b9e982c4ae9d788d3b03cc34957f2ef625bfc45c",
+                "reference": "b9e982c4ae9d788d3b03cc34957f2ef625bfc45c",
+                "shasum": ""
+            },
+            "require": {
+                "bezhansalleh/filament-shield": "^3.3",
+                "filament/filament": "^3.3",
+                "illuminate/contracts": "^10.0||^11.0||^12.0",
+                "mansoor/filament-versionable": "^0.0.13",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.16"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.9||^3.0",
+                "laravel/pint": "^1.14",
+                "nunomaduro/collision": "^8.1.1||^7.10.0",
+                "orchestra/testbench": "^10.0.0||^9.0.0||^8.22.0",
+                "pestphp/pest": "^3.0",
+                "pestphp/pest-plugin-arch": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0",
+                "phpstan/extension-installer": "^1.3||^2.0",
+                "phpstan/phpstan-deprecation-rules": "^1.1||^2.0",
+                "phpstan/phpstan-phpunit": "^1.3||^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "FilaPressCore": "RectitudeOpen\\FilaPressCore\\Facades\\FilaPressCore"
+                    },
+                    "providers": [
+                        "RectitudeOpen\\FilaPressCore\\FilaPressCoreServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RectitudeOpen\\FilaPressCore\\": "src/",
+                    "RectitudeOpen\\FilaPressCore\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rectitude Open",
+                    "email": "open@rectitude.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is my package filapress-core",
+            "homepage": "https://github.com/rectitude-open/filapress-core",
+            "keywords": [
+                "RectitudeOpen",
+                "filapress-core",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/rectitude-open/filapress-core/issues",
+                "source": "https://github.com/rectitude-open/filapress-core/tree/v1.0.0"
+            },
+            "time": "2025-05-10T10:25:45+00:00"
         },
         {
             "name": "ryangjchandler/blade-capture-directive",

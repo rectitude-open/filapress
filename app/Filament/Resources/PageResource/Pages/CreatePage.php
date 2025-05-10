@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\PageResource\Pages;
 
-use App\Filament\Common\BaseCreateRecord;
+use RectitudeOpen\FilaPressCore\Filament\Common\BaseCreateRecord;
 use App\Filament\Resources\PageResource;
 
 class CreatePage extends BaseCreateRecord
