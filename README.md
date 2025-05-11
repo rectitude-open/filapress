@@ -1,10 +1,19 @@
 ## FilaPress
 
-### Security Settings
+![Do not use](https://img.shields.io/badge/Under%20development-Don't%20use-red)
+![license](https://img.shields.io/badge/license-MIT-blue.svg)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%205-brightgreen)](https://phpstan.org/)
 
--   **Customizable Login Path**: Can custom login path including assets.
--   **Auto block on IP**: Auto block on IP after 5 failed login attempts.
--   **Audit and Logging**: Audit and logging of all login attempts.
+FilaPress is a streamlined Content Management System built upon the robust Laravel framework and the elegant Filament admin panel. Designed for rapid development, it empowers you to quickly launch small-scale websites (like corporate showcases, personal blogs, portfolios) and can also serve as a powerful backend for API-driven applications. Essential features are ready out-of-the-box.
+
+### Features
+
+-   🚀 **Rapid Development**: Quickly build and deploy small to medium-sized websites.
+-   📦 **Core Modules Included**: Comes with News, Pages, Categories, Menus, Tags etc.
+-   🔒 **Enhanced Security**: Features customizable login paths and security measures.
+-   🧩 **Filament Ecosystem**: Easily extend functionality with numerous Filament plugins.
+-   👤 **RBAC Ready**: Built-in Role-Based Access Control for managing user permissions.
+-   ⚙️ **Clean Architecture**: Strong separation between the frontend and backend logic.
 
 ### Filament Plugins
 
