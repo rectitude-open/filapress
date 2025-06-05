@@ -72,7 +72,7 @@ return [
         // ],
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
+            'model' => config('filapress-core.admin_model', RectitudeOpen\FilaPressCore\Models\Admin::class),
         ],
 
         // 'users' => [
