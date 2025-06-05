@@ -22,9 +22,7 @@ use RectitudeOpen\FilaPressCore\FilaPressCorePlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
-    public function boot(): void
-    {
-    }
+    public function boot(): void {}
 
     public function panel(Panel $panel): Panel
     {
