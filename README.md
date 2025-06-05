@@ -6,6 +6,13 @@
 
 FilaPress is a streamlined Content Management System built upon the robust Laravel framework and the elegant Filament admin panel. Designed for rapid development, it empowers you to quickly launch small-scale websites (like corporate showcases, personal blogs, portfolios) and can also serve as a powerful backend for API-driven applications. Essential features are ready out-of-the-box.
 
+### Design Principle
+
+-   Leverage the Laravel/Filament ecosystem for plug-and-play features, not a separate plugin marketplace.
+-   Utilize public composer update for upgrades, avoiding a private update server infrastructure.
+-   Ensure all packages and plugins are MIT licensed, guaranteeing 100% commercial viability.
+-   Bypass Vite compilation dependencies, requiring only a single PHP environment for real-time modifications.
+
 ### Features
 
 -   🚀 **Rapid Development**: Quickly build and deploy small to medium-sized websites.
@@ -31,6 +38,12 @@ FilaPress is a streamlined Content Management System built upon the robust Larav
 | Filament Captcha                | [Marco Germani](https://github.com/marcogermani87)   | MIT     | [Documentation](https://github.com/marcogermani87/filament-captcha)            |
 | Filament Laravel Auditing       | [Tapp Network](https://github.com/TappNetwork)       | MIT     | [Documentation](https://github.com/TappNetwork/filament-auditing)              |
 | Mail Log                        | [Tapp Network](https://github.com/TappNetwork)       | MIT     | [Documentation](https://github.com/TappNetwork/filament-maillog)               |
+| Filament News                   | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-news)               |
+| Filament Site Snippets          | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-site-snippets)      |
+| Filament Info Pages             | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-info-pages)         |
 | Filament TinyMCE Editor 6       | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-tinyeditor-6)       |
 | Filament Info Alert             | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-info-alert)         |
+| Filament Contact Logs           | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-contact-logs)       |
+| Filament Site Navigation        | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-site-navigation)    |
+| Filament System Settings        | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-system-settings)    |
 | Filament Ban Manager            | [Rectitude Open](https://github.com/rectitude-open)  | MIT     | [Documentation](https://github.com/rectitude-open/filament-ban-manager)        |
