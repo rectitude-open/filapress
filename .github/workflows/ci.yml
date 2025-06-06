@@ -1,0 +1,94 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: ["8.3"]
+
+    name: PHP-${{ matrix.php-versions }} - ${{ matrix.operating-system}}
+
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: test
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: pdo, pdo_mysql, mbstring, xml, curl, zip, pcntl, bcmath, gd, intl, exif, xdebug
+          coverage: xdebug
+
+      - name: Check Version
+        run: |
+          php -v
+          php -m
+          composer -V
+          mysqld --version
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache/Restore composer cache
+        uses: actions/cache@v4
+        id: actions-cache
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Cache/Restore vendor folder
+        uses: actions/cache@v4
+        id: vendor-cache
+        with:
+          path: vendor
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+
+      - name: Set environment to testing
+        run: echo "APP_ENV=testing" >> $GITHUB_ENV
+
+      - name: Configure database connection for CI
+        run: sed -i 's/DB_HOST=filapress-testing-mysql/DB_HOST=127.0.0.1/g' .env.testing
+
+      - name: Install Dependencies
+        if: steps.vendor-cache.outputs.cache-hit != 'true'
+        run: composer install
+
+      - name: Import database
+        run: php artisan migrate --seed
+
+      - name: Run Pint Test
+        run: ./vendor/bin/phpstan
+
+      - name: Static analysis
+        run: ./vendor/bin/phpstan analyse
+
+      - name: Run tests
+        run: ./vendor/bin/pest --parallel --configuration ./phpunit.xml --coverage-clover runtime/.phpunit.cache/coverage.xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: runtime/.phpunit.cache/coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: rectitude-open/filapress
+
+      - name: Dependencies security check
+        uses: symfonycorp/security-checker-action@v5
