@@ -11,7 +11,7 @@ FilaPress is a streamlined Content Management System built upon the robust Larav
 -   Leverage the Laravel/Filament ecosystem for plug-and-play features, not a separate plugin marketplace.
 -   Utilize public composer update for upgrades, avoiding a private update server infrastructure.
 -   Ensure all packages and plugins are MIT licensed, guaranteeing 100% commercial viability.
--   Bypass Vite compilation dependencies, requiring only a single PHP environment for real-time modifications.
+-   Minimize reliance on build tools like Vite, enabling live edits with a PHP-only environment.
 
 ### Features
 
