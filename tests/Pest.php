@@ -19,7 +19,7 @@ pest()->extend(Tests\TestCase::class)
 
 pest()->extend(Tests\TestCase::class)
     ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
-    ->in('../../filapress-core/tests/Feature');
+    ->in('../../filapress-core/tests/Integration');
 
 /*
 |--------------------------------------------------------------------------
