@@ -28,5 +28,5 @@ return [
         'navigation_icon' => 'heroicon-o-tag',
     ],
 
-    'editor_component_class' => \RectitudeOpen\FilamentTinyEditor6\TinyEditor::class
+    'editor_component_class' => \RectitudeOpen\FilamentTinyEditor6\TinyEditor::class,
 ];

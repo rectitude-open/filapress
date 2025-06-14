@@ -14,5 +14,5 @@ return [
         'FilamentContactLogsPlugin' => true,
         'FilamentSiteSnippetsPlugin' => true,
         'FilamentSiteNavigationPlugin' => true,
-    ]
+    ],
 ];
