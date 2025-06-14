@@ -52,7 +52,7 @@ RUN apt-get install -y nginx && \
     mkdir -p /home/wwwlogs
 
 RUN yes | docker-php-ext-install mysqli && \
-    docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/ && \
+    docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/ --with-webp && \
     docker-php-ext-install pdo_mysql gd zip pcntl bcmath mbstring exif && \
     docker-php-ext-enable opcache && \
     docker-php-ext-configure intl && \
