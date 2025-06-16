@@ -24,10 +24,12 @@ FilaPress is a streamlined Content Management System built upon the robust Larav
 
 ### Filament Plugins
 
+FilaPress stands on the shoulders of giants. We express our sincere gratitude to the developers of these plugins that make our system possible.
+
 | Plugin                          | Author                                               | License | Documentation                                                                  |
 | ------------------------------- | ---------------------------------------------------- | ------- | ------------------------------------------------------------------------------ |
 | Shield                          | [Bezhan Salleh](https://github.com/bezhanSalleh)     | MIT     | [Documentation](https://github.com/bezhansalleh/filament-shield)               |
-| Filament media manager          | [TomatoPHP](https://github.com/tomatophp)            | MIT     | [Documentation](https://github.com/tomatophp/filament-media-manager)           |
+| Filament Curator                | [Adam Weston](https://github.com/awcodes)            | MIT     | [Documentation](https://github.com/awcodes/filament-curator)                   |
 | Filament Users Manager          | [TomatoPHP](https://github.com/tomatophp)            | MIT     | [Documentation](https://github.com/tomatophp/filament-users)                   |
 | Activity logger for filament    | [ZedoX](https://github.com/Z3d0X)                    | MIT     | [Documentation](https://github.com/z3d0x/filament-logger)                      |
 | Filament Spatie Settings Plugin | [Filament](https://github.com/filamentphp)           | MIT     | [Documentation](https://github.com/filamentphp/spatie-laravel-settings-plugin) |
