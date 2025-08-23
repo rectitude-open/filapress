@@ -1,19 +1,15 @@
 services:
   filapress-nginx:
     container_name: filapress-nginx
-    image: filapress-nginx
+    image: ghcr.io/rectitude-open/dev-environments/php/8.3:latest
+    environment:
+      - PROJECT_ROOT=${PROJECT_ROOT}
+      - NGINX_ROOT=${PROJECT_ROOT}/public
+    working_dir: ${PROJECT_ROOT}
     volumes:
       - ../:/home/wwwroot/filapress
       - /home/wwwroot/filapress-core:/home/wwwroot/filapress-core
-      - ./php/nginx-site.conf:/etc/nginx/conf.d/default.conf
-      - ./php/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
-      - ./php/custom_php.ini:/usr/local/etc/php/conf.d/custom_php.ini
-      - ./php/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-      - /home/php/extension:/root/.vscode-server/extensions
-      - /home/php/extension-insiders:/root/.vscode-server-insiders/extensions
-    build:
-      context: .
-      dockerfile: ./php/dev.Dockerfile
+      - /home/wwwroot/filament-ban-mananger:/home/wwwroot/filament-ban-mananger
     ports:
       - 31151:80
       - 31156:31156
