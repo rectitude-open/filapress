@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 return [
 
     /*
@@ -81,17 +79,6 @@ return [
     */
 
     'locale' => env('APP_LOCALE', 'en'),
-
-    'locales' => [
-        'en' => [
-            'flag_code' => 'gb',
-            'name' => 'English',
-        ],
-        'zh_CN' => [
-            'flag_code' => 'cn',
-            'name' => '中文',
-        ]
-    ],
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 

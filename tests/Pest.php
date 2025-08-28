@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -14,12 +12,8 @@ declare(strict_types=1);
 */
 
 pest()->extend(Tests\TestCase::class)
-    ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
+ // ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
     ->in('Feature');
-
-pest()->extend(Tests\TestCase::class)
-    ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
-    ->in('../../filapress-core/tests/Integration');
 
 /*
 |--------------------------------------------------------------------------
